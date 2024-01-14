@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styles from "./authorizationStyle.module.css";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
   //added use states
@@ -128,7 +129,6 @@ const LogIn = () => {
                   color: "white",
                   border: "none",
                   backgroundColor: "#274c77",
-                  fontWeight: "bold",
                   fontSize: "22px",
                   height: "55px",
                   width: "100%",
@@ -155,7 +155,7 @@ const LogIn = () => {
                   border: "solid",
                   borderColor: "#274c77",
                   borderWidth: "2px",
-                  fontSize: "22px",
+                  fontSize: "20px",
                   height: "55px",
                   width: "100%",
                   justifyContent: "center",
@@ -168,6 +168,7 @@ const LogIn = () => {
                     display: "flex",
                     alignItems: "center",
                     gap: "20px",
+                    fontFamily: "Lato, sans serif",
                   }}
                 >
                   <div
@@ -176,11 +177,34 @@ const LogIn = () => {
                       alignItems: "center",
                     }}
                   >
-                    <FcGoogle />
+                    <FcGoogle fontSize="30px" />
                   </div>
                   Sign in with Google
                 </div>
               </button>
+            </div>
+            <div
+              style={{
+                color: "#929292",
+                fontWeight: "bold",
+                fontFamily: "Lato, sans serif",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-end",
+                marginTop: "auto",
+              }}
+            >
+              Don't have an account yet?{" "}
+              <Link
+                to="/register"
+                style={{
+                  color: "#929292",
+                  fontWeight: "bold",
+                  fontFamily: "Lato, sans serif",
+                }}
+              >
+                Sign up
+              </Link>
             </div>
           </div>
         </div>
