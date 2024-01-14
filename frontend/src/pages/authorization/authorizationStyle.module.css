@@ -1,0 +1,18 @@
+.container {
+  background-color: yellow;
+}
+
+.formContainer {
+  background-color: white;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 80vh;
+  flex-direction: column;
+}
+
+form {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
