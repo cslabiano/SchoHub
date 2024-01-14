@@ -61,41 +61,40 @@ const LogIn = () => {
     <>
       <div className={styles.container}>
         {/* Left Side */}
-        <div className={styles.left} id="login-container"></div>
-        {/* Right Side */}
-        <div className={styles.formContainer}>
-          {/* BootStrap document form */}
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <h3 className="title" style={{ textAlign: "left" }}>
-              Welcome Back!
-            </h3>
-            {/* Inputs */}
-            <div className="mb-3">
-              <input
-                type="email"
-                className="form-control"
-                id="InputEmailAddress"
-                value={Email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email Address"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                type="password"
-                className="form-control"
-                id="exampleInputPassword1"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              LOG IN
-            </button>
-          </form>
+        <div className={styles.left}></div>
+        <div className={styles.right}>
+          <div className={styles.formContainer}>
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <h3 style={{ textAlign: "left" }}>Welcome Back!</h3>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  className="form-control"
+                  id="InputEmailAddress"
+                  value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  style={styles.input}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  value={Password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  required
+                  style={styles.input}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Sign in
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </>

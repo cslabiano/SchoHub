@@ -1,18 +1,44 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
 .container {
-  background-color: yellow;
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  display: flex;
+  align-content: flex-start;
+  background-color: #12131a;
+  width: 40%;
+}
+
+.right {
+  display: flex;
+  width: 60%;
+  justify-content: center;
 }
 
 .formContainer {
-  background-color: white;
   display: flex;
-  /* align-items: center; */
+  width: 80%;
   justify-content: center;
   height: 80vh;
   flex-direction: column;
 }
 
 form {
-  width: 80%;
-  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
+  background-color: pink;
+  justify-content: center;
+}
+
+input {
+  border-color: #274c77;
+  border-style: solid;
+  border-radius: 4px;
 }
