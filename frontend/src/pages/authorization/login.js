@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styles from "./authorizationStyle.module.css";
+import { FcGoogle } from "react-icons/fc";
 
 const LogIn = () => {
   //added use states
@@ -133,7 +134,7 @@ const LogIn = () => {
                   width: "100%",
                   alignItems: "center",
                   borderRadius: "4px",
-                  marginTop: "50px",
+                  marginTop: "45px",
                 }}
               >
                 SIGN IN
@@ -143,6 +144,43 @@ const LogIn = () => {
               <div className={styles.line}></div>
               <div className={styles.word}>or</div>
               <div className={styles.line}></div>
+            </div>
+            <div>
+              <button
+                type="button"
+                className="btn btn-primary"
+                style={{
+                  display: "flex",
+                  color: "#474747",
+                  border: "solid",
+                  borderColor: "#274c77",
+                  borderWidth: "2px",
+                  fontSize: "22px",
+                  height: "55px",
+                  width: "100%",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "4px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <FcGoogle />
+                  </div>
+                  Sign in with Google
+                </div>
+              </button>
             </div>
           </div>
         </div>
