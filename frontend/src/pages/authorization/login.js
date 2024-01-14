@@ -65,8 +65,27 @@ const LogIn = () => {
         <div className={styles.right}>
           <div className={styles.formContainer}>
             <form onSubmit={handleSubmit} className={styles.form}>
-              <h3 style={{ textAlign: "left" }}>Welcome Back!</h3>
-              <div className="mb-3">
+              <h1
+                style={{
+                  textAlign: "left",
+                  color: "#474747",
+                  fontSize: "38px",
+                }}
+              >
+                Welcome back!
+              </h1>
+              <div
+                className="mb-3"
+                style={{
+                  width: "100%",
+                  marginBottom: "5px",
+                  fontWeight: "bold",
+                  fontSize: "21px",
+                  color: "#474747",
+                }}
+              >
+                E-mail
+                <br />
                 <input
                   type="email"
                   className="form-control"
@@ -78,7 +97,18 @@ const LogIn = () => {
                   style={styles.input}
                 />
               </div>
-              <div className="mb-3">
+
+              <div
+                className="mb-3"
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "21px",
+                  marginBottom: "5px",
+                  color: "#474747",
+                }}
+              >
+                Password
+                <br />
                 <input
                   type="password"
                   className="form-control"
@@ -90,10 +120,30 @@ const LogIn = () => {
                   style={styles.input}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
-                Sign in
+              <button
+                type="submit"
+                className="btn btn-primary"
+                style={{
+                  color: "white",
+                  border: "none",
+                  backgroundColor: "#274c77",
+                  fontWeight: "bold",
+                  fontSize: "22px",
+                  height: "55px",
+                  width: "100%",
+                  alignItems: "center",
+                  borderRadius: "4px",
+                  marginTop: "50px",
+                }}
+              >
+                SIGN IN
               </button>
             </form>
+            <div className={styles.lineContainer}>
+              <div className={styles.line}></div>
+              <div className={styles.word}>or</div>
+              <div className={styles.line}></div>
+            </div>
           </div>
         </div>
       </div>

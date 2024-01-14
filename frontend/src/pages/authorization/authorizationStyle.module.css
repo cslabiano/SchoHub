@@ -2,6 +2,7 @@ body,
 html {
   height: 100%;
   margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
 .container {
@@ -24,7 +25,7 @@ html {
 
 .formContainer {
   display: flex;
-  width: 80%;
+  width: 70%;
   justify-content: center;
   height: 80vh;
   flex-direction: column;
@@ -33,12 +34,36 @@ html {
 form {
   width: 100%;
   margin: 0 auto;
-  background-color: pink;
   justify-content: center;
 }
 
 input {
   border-color: #274c77;
   border-style: solid;
+  border-width: 2px;
   border-radius: 4px;
+  font-size: 20px;
+  width: 98%;
+  height: 50px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-left: 10px;
+}
+
+.lineContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #929292;
+}
+
+.word {
+  margin: 0 7px;
+  color: #929292;
 }
