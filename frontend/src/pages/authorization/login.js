@@ -201,6 +201,7 @@ const LogIn = () => {
                   color: "#929292",
                   fontWeight: "bold",
                   fontFamily: "Lato, sans serif",
+                  marginLeft: "5px",
                 }}
               >
                 Sign up
