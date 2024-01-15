@@ -1,11 +1,12 @@
 import Navbar from "../../components/adminNavbar.js";
-
 import React from "react";
 
-export default function requests() {
+const View = () => {
   return (
     <>
       <Navbar />
     </>
   );
-}
+};
+
+export default View;

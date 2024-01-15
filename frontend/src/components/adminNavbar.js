@@ -46,7 +46,7 @@ const userNavbar = () => {
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/admin/requests"
+                    to="/admin/view"
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
