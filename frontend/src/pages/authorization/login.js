@@ -163,6 +163,7 @@ const LogIn = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   borderRadius: "4px",
+                  backgroundColor: "white",
                 }}
               >
                 <div
