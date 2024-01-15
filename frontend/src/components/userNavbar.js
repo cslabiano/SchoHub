@@ -37,7 +37,7 @@ const userNavbar = () => {
               >
                 <div class="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/dashboard"
+                    to="/user/dashboard"
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
@@ -46,7 +46,7 @@ const userNavbar = () => {
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/form"
+                    to="/user/form"
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >

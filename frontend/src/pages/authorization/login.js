@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import styles from "./authorizationStyle.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/userNavbar.js";
 
 const LogIn = () => {
   //added use states
@@ -62,7 +61,6 @@ const LogIn = () => {
 
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         {/* Left Side */}
         <div className={styles.left}></div>
