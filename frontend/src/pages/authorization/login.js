@@ -72,6 +72,7 @@ const LogIn = () => {
                   textAlign: "left",
                   color: "#474747",
                   fontSize: "38px",
+                  marginBottom: "30px",
                 }}
               >
                 Welcome back!
@@ -134,7 +135,7 @@ const LogIn = () => {
                   width: "100%",
                   alignItems: "center",
                   borderRadius: "4px",
-                  marginTop: "45px",
+                  marginTop: "25px",
                 }}
               >
                 SIGN IN

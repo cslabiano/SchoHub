@@ -72,6 +72,7 @@ const Register = () => {
                   textAlign: "left",
                   color: "#474747",
                   fontSize: "38px",
+                  marginBottom: "30px",
                 }}
               >
                 Create an account!
@@ -134,7 +135,7 @@ const Register = () => {
                   width: "100%",
                   alignItems: "center",
                   borderRadius: "4px",
-                  marginTop: "45px",
+                  marginTop: "25px",
                 }}
               >
                 SIGN UP
