@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import styles from "./authorizationStyle.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/userNavbar.js";
 
 const LogIn = () => {
   //added use states
@@ -61,6 +62,7 @@ const LogIn = () => {
 
   return (
     <>
+      <Navbar />
       <div className={styles.container}>
         {/* Left Side */}
         <div className={styles.left}></div>
@@ -90,13 +92,13 @@ const LogIn = () => {
                 <br />
                 <input
                   type="email"
-                  className="form-control"
+                  // className="form-control"
                   id="InputEmailAddress"
                   value={Email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  style={styles.input}
+                  className={styles.formInput}
                 />
               </div>
 
@@ -113,13 +115,13 @@ const LogIn = () => {
                 <br />
                 <input
                   type="password"
-                  className="form-control"
+                  // className="form-control"
                   id="exampleInputPassword1"
                   value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   required
-                  style={styles.input}
+                  className={styles.formInput}
                 />
               </div>
               <button

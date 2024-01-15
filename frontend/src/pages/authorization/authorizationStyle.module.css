@@ -38,7 +38,7 @@ form {
   justify-content: center;
 }
 
-input {
+.formInput {
   border-color: #274c77;
   border-style: solid;
   border-width: 2px;

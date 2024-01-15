@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
+import styles from "./navbar.module.css";
 
-const CustomerNavBar = () => {
+const userNavbar = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg bg-body-tertiary"
+        // className="navbar navbar-expand-lg bg-body-tertiary"
+        className={styles.navbar}
         style={{
           position: "sticky",
           top: 0,
@@ -45,12 +47,12 @@ const CustomerNavBar = () => {
                 }}
               >
                 <div class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <Link to="/shop" className="nav-item nav-link">
+                  <Link to="/dashboard" className={styles.navLink}>
                     Dashboard
                   </Link>
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <Link to="/about" className="nav-item nav-link">
+                  <Link to="/form" className={styles.navLink}>
                     Request Form
                   </Link>
                 </div>
@@ -69,7 +71,8 @@ const CustomerNavBar = () => {
                 <div style={{ width: "100%" }}>
                   <form className="d-flex" role="search">
                     <input
-                      className="form-control me-2"
+                      // className="form-control me-2"
+                      className={styles.search}
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
@@ -110,4 +113,4 @@ const CustomerNavBar = () => {
   );
 };
 
-export default CustomerNavBar;
+export default userNavbar;
