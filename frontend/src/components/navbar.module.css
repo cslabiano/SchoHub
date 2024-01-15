@@ -1,30 +1,48 @@
 img {
-  height: 100%;
-  /* max-height: 50%; */
+  height: 35px;
 }
 
 .navbar {
   background-color: white;
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
   line-height: 26px;
-  text-transform: uppercase;
   box-shadow: 0 4px 6px -6px gray;
+  font-family: "Inter", sans-serif;
+
   padding-top: 15px;
   padding-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+
+  position: sticky;
+  top: 0;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
-.navLink {
+#navLink {
   font-weight: 300;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  color: #191919;
 }
 
 .active {
-  /* border-bottom:2px  solid #FFCC29 ; */
-  color: #3e8c6b;
+  color: #6096ba;
 }
 
-.navbarBrand {
-  font-weight: 700;
-  font-family: "century gothic", sans-serif;
-  letter-spacing: 3px;
+#btn {
+  color: #274c77;
+  background-color: transparent;
+  border-color: #274c77;
+}
+
+/* Hover state */
+#btn:hover {
+  color: white;
+  background-color: #274c77;
+  border-color: #274c77;
 }
