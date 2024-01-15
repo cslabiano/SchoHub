@@ -28,8 +28,10 @@ html {
   display: flex;
   width: 70%;
   justify-content: center;
-  height: 80vh;
+  height: 85vh;
   flex-direction: column;
+  padding-top: 60px;
+  /* background-color: yellow; */
 }
 
 form {
