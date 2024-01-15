@@ -46,6 +46,15 @@ const userNavbar = () => {
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
+                    to="/admin/manage"
+                    className="nav-item nav-link"
+                    id={styles.navLink}
+                  >
+                    Manage Files
+                  </Link>
+                </div>
+                <div className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <Link
                     to="/admin/view"
                     className="nav-item nav-link"
                     id={styles.navLink}

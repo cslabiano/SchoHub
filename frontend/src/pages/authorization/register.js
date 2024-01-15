@@ -43,11 +43,11 @@ const Register = () => {
         localStorage.setItem("userEmail", Email);
 
         // Check user type and navigate accordingly
-        if (data.type === "Merchant") {
+        if (data.type === "admin") {
           console.log("Going to admin");
-          navigate("/admin"); // Redirect to the admin page for Merchants
+          navigate("/admin/dashboard"); // Redirect to the admin page for Merchants
         } else {
-          navigate("/shop"); // Redirect to the shop page for Customers
+          navigate("/user/dashboard"); // Redirect to the shop page for Customers
         }
       } else {
         // Login failed
