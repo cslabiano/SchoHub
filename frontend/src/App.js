@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/authorization/login.js";
-import Register from "./pages/authorization/register.js";
 
-import View from "./pages/admin/view.js";
+import Login from "./pages/authorization/Login.js";
+import Register from "./pages/authorization/Register.js";
+
+import View from "./pages/admin/View.js";
 
 function App() {
   return (

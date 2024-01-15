@@ -21,8 +21,6 @@ img {
 
 #navLink {
   font-weight: 300;
-  align-items: center;
-  justify-content: center;
   text-transform: uppercase;
   font-size: 17px;
   font-family: "Inter", sans-serif;
@@ -30,7 +28,7 @@ img {
   color: #191919;
 }
 
-.active {
+#navLink:hover {
   color: #6096ba;
 }
 
