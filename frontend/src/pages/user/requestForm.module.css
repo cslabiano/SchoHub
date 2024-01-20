@@ -1,0 +1,35 @@
+.container {
+    font-family: "Inter";
+    display: flex;
+}
+
+.leftContainer {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+}
+
+.right {
+    display: flex;
+    width: 30%;
+    align-self: right;
+    background-color: #274C77;
+}
+
+.leftTitle {
+    padding-top: 50px;
+    padding-left: 50px;
+    font-family: "Inter";
+    font-size: large;
+    font-weight: bold;
+    align-items: start;
+}
+
+.formContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 60px;
+    margin: 20px;
+    height: 78.5vh;
+}
