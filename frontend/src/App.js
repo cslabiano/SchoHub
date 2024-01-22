@@ -1,9 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 
-import Login from "./pages/authorization/login.js";
-import Register from "./pages/authorization/register.js";
-import RequestForm from "./pages/user/requestForm.js";
-import View from "./pages/admin/view.js";
+import Login from "./pages/authorization/Login.js";
+import Register from "./pages/authorization/Register.js";
+
+import RequestForm from "./pages/user/RequestForm.js";
+import UserProfile from "./pages/profile/Profile.js";
+
+import View from "./pages/admin/View.js";
 
 function App() {
   return (
@@ -12,7 +15,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin/view" element={<View />} />
-        <Route path="/user/form" element={<RequestForm/>} />
+        <Route path="/user/form" element={<RequestForm />} />
+        <Route path="/user/profile" element={<UserProfile />} />
       </Routes>
     </>
   );
