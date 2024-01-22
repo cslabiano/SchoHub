@@ -1,1 +1,1 @@
-import Navbar from "../../components/userNavbar.js";
+import Navbar from "../../components/UserNavbar.js";

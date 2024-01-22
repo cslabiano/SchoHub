@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styles from "./AuthorizationStyle.module.css";
@@ -9,32 +9,80 @@ const LogIn = () => {
   //added use states
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+
+  const [data, setData] = useState([]);
+  let [userID, setUserID] = useState("");
   //const [selectValue, setSelectValue] = useState(null);
 
   // Obtain the navigate function
   const navigate = useNavigate();
 
+  // getting data from users collection in database
+  const getData = async() => {
+    const response = await fetch("http://localhost:3001/api/users");
+    const data = await response.json();
+    console.log(data);
+    setData(data);
+  }
+
+  // // getting specific user in database (using ID)
+  // const findUserDocument = async() => {
+  //   const response = await fetch(`http://localhost:3001/api/users/${userID}`);
+  //   const result = await response.json();
+  //   console.log("user found:", result);
+  //   return result;
+  // }
+
+  // do for each request
+  useEffect(() => {
+    getData();
+  }, []);
+
   //form functions
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/api/log-in", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: Email,
-          password: Password,
-        }),
-      });
+      // const response = await fetch("http://localhost:3001/api/users", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: Email,
+      //     password: Password,
+      //   }),
+      // });
 
-      const data = await response.json();
+      // const data = await response.json();
+      //getData();
 
-      if (response.ok) {
+      let searchUser = () => {
+        let loginSuccess = false;
+        for (let i = 0; i < data.length; i++){
+          if (data[i].email === Email && data[i].password === Password){
+            console.log(data[i].email);
+            console.log(data[i].password);
+            console.log(data[i]._id);
+            console.log(data[i].class);
+            console.log("email credentials match");
+            loginSuccess = data[i].class; // return user's class if user exists in database
+            setUserID(data[i]._id); // keep note of user's document ID in database
+            break;
+          }
+        }
+        return loginSuccess;
+      }
+
+      let success = searchUser(); // if there is an account, will contain the class; else will contain false
+      console.log(success);
+
+      if (success) {
         // Login successful
         toast.success("Login Successfully");
+        console.log("Login Successfully");
         console.log(Email, Password);
+        //console.log("class user: ", success);
+        
 
         // Remove current email in localStorage
         localStorage.removeItem("userEmail");
@@ -43,7 +91,7 @@ const LogIn = () => {
         localStorage.setItem("userEmail", Email);
 
         // Check user type and navigate accordingly
-        if (data.type === "admin") {
+        if (success === "admin") {
           console.log("Going to admin");
           navigate("/admin/dashboard"); // Redirect to the admin page for Merchants
         } else {
