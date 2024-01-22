@@ -1,0 +1,29 @@
+body {
+    font-family: "Inter";
+}
+
+.partition {
+    padding-left: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+}
+
+.heading {
+    padding-top: 50px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.subHeading {
+    padding-top: 20px;
+    font-size: large;
+}
+
+.container {
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
