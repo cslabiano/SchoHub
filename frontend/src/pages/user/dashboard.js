@@ -1,8 +1,8 @@
-import Navbar from "../../components/userNavbar.js";
+import Navbar from "../../components/UserNavbar.js";
 import React from "react";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
-import styles from "./dashboard.module.css";
+import styles from "./Dashboard.module.css";
 
 const UserDashboard = () => {
     return (

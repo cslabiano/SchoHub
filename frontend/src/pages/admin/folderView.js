@@ -1,9 +1,9 @@
-import Navbar from "../../components/userNavbar.js";
-import Folders from "../../components/folders.js";
-import Files from "../../components/files.js";
+import Navbar from "../../components/UserNavbar.js";
+import Folders from "../../components/Folders.js";
+import Files from "../../components/Files.js";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
-import styles from "./folderView.module.css";
+import styles from "./FolderView.module.css";
 
 const AdminFolderView = () => {
     return (

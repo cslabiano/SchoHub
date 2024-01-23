@@ -1,4 +1,4 @@
-import Navbar from "../../components/adminNavbar.js";
+import Navbar from "../../components/AdminNavbar.js";
 import React from "react";
 import styles from "./View.module.css";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFolder } from "react-icons/fa";
 import { FaEllipsisV } from "react-icons/fa";
-import styles from "./folders.module.css";
+import styles from "./Folders.module.css";
 
 class Files extends React.Component {
     render() {

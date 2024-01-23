@@ -1,13 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 
-import Login from "./pages/authorization/login.js";
-import Register from "./pages/authorization/register.js";
-import RequestForm from "./pages/user/requestForm.js";
-import View from "./pages/admin/view.js";
-import UserDashboard from "./pages/user/dashboard.js";
-import AdminDashboard from "./pages/admin/dashboard.js";
-import UserFolderView from "./pages/user/folderView.js";
-import AdminFolderView from "./pages/user/folderView.js";
+import Login from "./pages/authorization/Login.js";
+import Register from "./pages/authorization/Register.js";
+import RequestForm from "./pages/user/RequestForm.js";
+import View from "./pages/admin/View.js";
+import UserDashboard from "./pages/user/Dashboard.js";
+import AdminDashboard from "./pages/admin/Dashboard.js";
+import UserFolderView from "./pages/user/FolderView.js";
+import AdminFolderView from "./pages/user/FolderView.js";
+import UserProfile from "./pages/profile/Profile.js";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard/>} />
         <Route path="/user/folderView" element={<UserFolderView/>} />
         <Route path="/admin/folderView" element={<AdminFolderView/>} />
+        <Route path="/user/profile" element={<UserProfile />} />
       </Routes>
     </>
   );

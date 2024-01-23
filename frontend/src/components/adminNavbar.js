@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 
 const AdminNavbar = () => {
   return (

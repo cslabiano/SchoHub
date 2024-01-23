@@ -3,7 +3,7 @@ import { FaEllipsisV } from "react-icons/fa";
 import { FaFile } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { FaFileAlt } from "react-icons/fa";
-import styles from "./files.module.css";
+import styles from "./Files.module.css";
 
 class Files extends React.Component {
     fileType() {
