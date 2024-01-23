@@ -33,7 +33,7 @@ const LogIn = () => {
   //   return result;
   // }
 
-  // do for each request
+  // do for each request (load data every)
   useEffect(() => {
     getData();
   }, []);
@@ -99,6 +99,8 @@ const LogIn = () => {
         }
       } else {
         // Login failed
+        // put alert: "Incorrect email or password."
+        console.log("Login failed. Incorrect email or password.");
         toast.error(data.message || "Login failed");
       }
     } catch (error) {
