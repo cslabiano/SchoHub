@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styles from "./AuthorizationStyle.module.css";
@@ -11,29 +11,101 @@ const Register = () => {
   const [Password, setPassword] = useState("");
   //const [selectValue, setSelectValue] = useState(null);
 
+  const [userData, setUserData] = useState([]);
+  const [residentData, setResidentData] = useState([]);
+
+  let [newResidentName, setNewResidentName] = useState([]);
+
   // Obtain the navigate function
   const navigate = useNavigate();
+
+  // obtain users data
+  const getUserData = async() => {
+    const response = await fetch("http://localhost:3001/api/users");
+    const userData = await response.json();
+    console.log(userData);
+    setUserData(userData);
+  }
+
+  // obtain users data
+  const getResidentData = async() => {
+    const response = await fetch("http://localhost:3001/api/residents");
+    const residentData = await response.json();
+    console.log(residentData);
+    setResidentData(residentData);
+  }
+
+  // do for each request (load data every time)
+  useEffect(() => {
+    getUserData();
+    getResidentData();
+  }, []);
+
+  // checks if entered email matches with already existing user
+  let searchUser = () => {
+    let userFound = false;
+    for (let i = 0; i < userData.length; i++){
+      if (userData[i].email === Email){
+        console.log("Email: ", userData[i].email);
+        console.log("Password: ", userData[i].password);
+        console.log("ID: ", userData[i]._id);
+        console.log("Class: ", userData[i].class);
+        console.log("Email already exists in users database.");
+        userFound = true; // return user's class if user exists in database
+        break;
+      }
+    }
+    return userFound;
+  }
+
+  // checks if entered email exists in the residents database
+  let searchResident = () => {
+    let residentFound = false;
+    for (let i = 0; i < residentData.length; i++){
+      if (residentData[i].email === Email){
+        console.log(residentData[i].name);
+        console.log(residentData[i].email);
+        newResidentName = residentData[i].name;
+        setNewResidentName(newResidentName); // take note of Resident's name
+        console.log("Email exists in residents database.");
+        residentFound = true;
+        break;
+      }
+    }
+    return residentFound;
+  }
+
+  // fetch-post method for creating new user document in database
+  const createNewUser = async() => {
+    const response = await fetch("http://localhost:3001/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: newResidentName,
+        email: Email,
+        password: Password,
+        class: "user",
+      }),
+    });
+    const result = await response.json();
+    console.log("Created new user: ", result);
+  }
 
   //form functions
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/api/log-in", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: Email,
-          password: Password,
-        }),
-      });
+      
+      // if user/account does not exist but entered email exists in the residents database, allow to register
+      if (searchUser() === false && searchResident() === true) {
 
-      const data = await response.json();
-
-      if (response.ok) {
-        // Login successful
+        createNewUser(); // create a new user/register
+        
+        // Register successful
         toast.success("Login Successfully");
+        console.log("Registered successfully.");
         console.log(Email, Password);
 
         // Remove current email in localStorage
@@ -42,16 +114,20 @@ const Register = () => {
         // Save user email to localStorage
         localStorage.setItem("userEmail", Email);
 
-        // Check user type and navigate accordingly
-        if (data.type === "admin") {
-          console.log("Going to admin");
-          navigate("/admin/dashboard"); // Redirect to the admin page for Merchants
-        } else {
-          navigate("/user/dashboard"); // Redirect to the shop page for Customers
-        }
+        // Go back to login page
+        console.log("Going back to Login.");
+        navigate("/"); // Redirect to the Login page
+
+      } else if (searchResident() === false){
+        // Register failed
+        console.log("Register failed. Email does not belong to a resident.");
+        console.log(Email, Password);
+        // toast.error(data.message || "Login failed");
       } else {
-        // Login failed
-        toast.error(data.message || "Login failed");
+        // Register failed
+        console.log("Register failed. User already exists.");
+        console.log(Email, Password);
+        // toast.error(data.message || "Login failed");
       }
     } catch (error) {
       console.error("Error during login:", error);
