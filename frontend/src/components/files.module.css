@@ -1,0 +1,54 @@
+.file {
+    width: 270px;
+    height: 220px;
+    margin: 0 20px 20px 0;
+    border-radius: 10px; 
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+}
+
+.file:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#curriculum{
+    background-color: #12131A;
+}
+
+.fileImg {
+    border-radius: 10px 10px 0 0;
+    height: 70%;
+}
+
+.fileDetails {
+    border-radius: 0 0 10px 10px; 
+    height: 30%;
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fileInfo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 22px;
+}
+
+.fileInfo *{
+    margin-right: 20px;
+}
+
+.fileMore {
+    height: 40%;
+    margin-right: 15px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.fileMore:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
