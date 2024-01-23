@@ -10,3 +10,31 @@
   .h4 {
     color: #2b5b87;
   }
+
+  .profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .classification {
+    margin-top: 20px;
+  }
+
+  #btn {
+    color: white;
+    background-color: #274c77;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border-color: #274c77;
+    font-size: 17px;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* Hover state */
+  #btn:hover {
+    color: #274c77;
+    background-color: white;
+    border-color: #274c77;
+  }

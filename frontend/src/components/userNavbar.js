@@ -82,7 +82,7 @@ const userNavbar = () => {
                   </form>
                 </div>
 
-                <Link to="/profile" style={{ textDecoration: "none" }}>
+                <Link to="/user/profile" style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
                     id={styles.btn}
