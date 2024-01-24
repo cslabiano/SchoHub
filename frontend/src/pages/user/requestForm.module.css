@@ -14,6 +14,7 @@
     width: 30%;
     align-self: right;
     background-color: #274C77;
+    flex-direction: column;
 }
 
 .leftTitle {
@@ -33,3 +34,49 @@
     margin: 20px;
     height: 78.5vh;
 }
+
+.fileFormat1 {
+    font-family: "Inter";
+    font-size: small;
+    color:#818181;
+    margin: 0;
+}
+
+.fileFormat2 {
+    font-family: "Inter";
+    font-size: small;
+    color:#646464;
+}
+
+.rightTitle {
+    padding-top: 50px;
+    padding-left: 50px;
+    margin-right: 50px;
+    font-family: "Inter";
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    align-items: start;
+}
+
+.textBox {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    margin-right: 50px;
+}
+
+.textGuide {
+    padding-top: 50px;
+    color: white;
+    font-family: "Inter";
+    text-align: justify;
+}
+
+.buttonBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+
