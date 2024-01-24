@@ -1,4 +1,4 @@
-import Navbar from "../../components/UserNavbar.js";
+import Navbar from "../../components/AdminNavbar.js";
 import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
 import React from "react";

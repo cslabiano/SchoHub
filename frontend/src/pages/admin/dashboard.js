@@ -1,4 +1,4 @@
-import Navbar from "../../components/UserNavbar.js";
+import Navbar from "../../components/AdminNavbar.js";
 import React from "react";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";

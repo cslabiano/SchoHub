@@ -10,7 +10,7 @@ import View from "./pages/admin/View.js";
 import UserDashboard from "./pages/user/Dashboard.js";
 import AdminDashboard from "./pages/admin/Dashboard.js";
 import UserFolderView from "./pages/user/FolderView.js";
-import AdminFolderView from "./pages/user/FolderView.js";
+import AdminFolderView from "./pages/admin/FolderView.js";
 
 function App() {
   return (
