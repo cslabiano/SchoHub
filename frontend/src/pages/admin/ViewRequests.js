@@ -1,6 +1,6 @@
 import Navbar from "../../components/AdminNavbar.js";
 import React from "react";
-import styles from "./View.module.css";
+import styles from "./ViewRequests.module.css";
 
 const View = () => {
   return (
