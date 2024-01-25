@@ -18,12 +18,12 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   // getting data from users collection in database
-  const getData = async() => {
+  const getData = async () => {
     const response = await fetch("http://localhost:3001/api/users");
     const data = await response.json();
     console.log(data);
     setData(data);
-  }
+  };
 
   // // getting specific user in database (using ID)
   // const findUserDocument = async() => {
@@ -58,8 +58,8 @@ const LogIn = () => {
 
       let searchUser = () => {
         let loginSuccess = false;
-        for (let i = 0; i < data.length; i++){
-          if (data[i].email === Email && data[i].password === Password){
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].email === Email && data[i].password === Password) {
             console.log(data[i].email);
             console.log(data[i].password);
             console.log(data[i]._id);
@@ -71,7 +71,7 @@ const LogIn = () => {
           }
         }
         return loginSuccess;
-      }
+      };
 
       let success = searchUser(); // if there is an account, will contain the class; else will contain false
       console.log(success);
@@ -82,7 +82,6 @@ const LogIn = () => {
         console.log("Login Successfully");
         console.log(Email, Password);
         //console.log("class user: ", success);
-        
 
         // Remove current email in localStorage
         localStorage.removeItem("userEmail");

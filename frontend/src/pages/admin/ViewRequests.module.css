@@ -2,11 +2,34 @@
   font-family: "Inter";
 }
 
-.title {
+.pageTitle {
   padding: 2% 5%;
   padding-bottom: 0%;
 }
 
 .h4 {
   color: #2b5b87;
+}
+
+.reqContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  /* background-color: aqua; */
+}
+
+.details {
+  /* background-color: yellow; */
+}
+
+span {
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  /* background-color: pink; */
 }
