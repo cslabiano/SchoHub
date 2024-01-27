@@ -11,12 +11,18 @@ body {
     padding: 0 20px 0 20px;
     border: none;
     border-radius: 20px; 
-    box-shadow: 0 3px 5px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 1px 3px rgba(0, 0, 0, 0.1);
     background-color: #FFFFFF;
     font-size: x-large;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+#addFile:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 5px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 #addFile p {
@@ -60,6 +66,7 @@ body {
 
 .course:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 #cmsc{
