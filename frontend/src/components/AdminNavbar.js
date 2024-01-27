@@ -91,7 +91,7 @@ const AdminNavbar = () => {
                   </form>
                 </div>
 
-                <Link to="/profile" style={{ textDecoration: "none" }}>
+                <Link to="/admin/profile" style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
                     id={styles.btn}
