@@ -14,6 +14,7 @@ import UserProfile from "./pages/profile/UserProfile.js";
 import AdminDashboard from "./pages/admin/Dashboard.js";
 import AdminFolderView from "./pages/admin/FolderView.js";
 import View from "./pages/admin/ViewRequests.js";
+import ManageFiles from "./pages/admin/ManageFiles.js";
 import AdminProfile from "./pages/profile/AdminProfile.js";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/user/folderView" element={<UserFolderView />} />
         <Route path="/admin/folderView" element={<AdminFolderView />} />
         <Route path="/user/profile" element={<UserProfile />} />
+        <Route path="/admin/manage" element={<ManageFiles />} />
       </Routes>
     </>
   );
