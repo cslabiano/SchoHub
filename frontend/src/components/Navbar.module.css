@@ -17,6 +17,7 @@ img {
   top: 0;
   padding-left: 40px;
   padding-right: 40px;
+  z-index: 100;
 }
 
 #navLink {

@@ -1,17 +1,20 @@
 .container {
     font-family: "Inter";
     display: flex;
+    overflow: hidden;
+    position: absolute; top: 60px; bottom:0; right:0; left:0;
+    z-index: 50;
 }
 
 .leftContainer {
     display: flex;
-    width: 70%;
+    width: 50%;
     flex-direction: column;
 }
 
 .right {
     display: flex;
-    width: 30%;
+    width: 50%;
     align-self: right;
     background-color: #274C77;
     flex-direction: column;
@@ -32,7 +35,6 @@
     flex-direction: column;
     padding-top: 60px;
     margin: 20px;
-    height: 78.5vh;
 }
 
 .fileFormat1 {
@@ -64,10 +66,11 @@
     flex-direction: column;
     padding-left: 50px;
     margin-right: 50px;
+    padding-top: 40px;
 }
 
 .textGuide {
-    padding-top: 50px;
+    padding-top: 30px;
     color: white;
     font-family: "Inter";
     text-align: justify;
