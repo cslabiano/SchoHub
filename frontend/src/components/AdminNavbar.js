@@ -18,6 +18,7 @@ const AdminNavbar = () => {
             textTransform: "capitalize",
           }}
         >
+          {/* SchoHub logo */}
           <img src={require("../assets/logo.png")} alt="SchoHub logo" />
           <div style={{ width: "60%" }}>
             <div
@@ -73,6 +74,7 @@ const AdminNavbar = () => {
                   flexGrow: 2,
                 }}
               >
+                {/* div for search bar */}
                 <div style={{ width: "100%" }}>
                   <form className="d-flex" role="search">
                     <input
@@ -91,6 +93,7 @@ const AdminNavbar = () => {
                   </form>
                 </div>
 
+                {/* profile */}
                 <Link to="/admin/profile" style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
@@ -105,6 +108,8 @@ const AdminNavbar = () => {
                     <FaUserCircle fontSize={25} />
                   </button>
                 </Link>
+
+                {/* log out button */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"

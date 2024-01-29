@@ -29,6 +29,7 @@ const ViewRequest = () => {
     },
   ]);
 
+  // function for resolve button, prints in console only
   const resolveBtn = (index) => {
     const ticket = requests[index];
     console.log(`Resolved ${ticket.lname}'s request.`);
@@ -38,6 +39,7 @@ const ViewRequest = () => {
     setRequests(updatedRequests);
   };
 
+  // similar function with resolve button, can be used for further improvements
   const rejectBtn = (index) => {
     const ticket = requests[index];
     console.log(`Rejected ${ticket.lname}'s request.`);
@@ -50,12 +52,18 @@ const ViewRequest = () => {
   return (
     <>
       <div className={styles.container}>
+        {/* calls the admin navbar component */}
         <Navbar />
+
+        {/* Tab title */}
         <div className={styles.pageTitle}>
           <h4 className={styles.h4}>File Requests</h4>
         </div>
+
+        {/* div for containing the requests dynamically */}
         <div className="container" style={{ marginTop: "3%" }}>
           <div className="row g-4">
+            {/* similar to the function "for each", calls for the list named "req" */}
             {requests.map((req, index) => {
               return (
                 <>

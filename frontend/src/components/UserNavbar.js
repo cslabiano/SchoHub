@@ -18,6 +18,7 @@ const userNavbar = () => {
             textTransform: "capitalize",
           }}
         >
+          {/* SchoHub logo */}
           <img src={require("../assets/logo.png")} alt="SchoHub logo" />
           <div style={{ width: "60%" }}>
             <div
@@ -82,6 +83,7 @@ const userNavbar = () => {
                   </form>
                 </div>
 
+                {/* profile */}
                 <Link to="/user/profile" style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
@@ -96,6 +98,8 @@ const userNavbar = () => {
                     <FaUserCircle fontSize={25} />
                   </button>
                 </Link>
+
+                {/* log out button */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
