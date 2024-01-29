@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../../components/UserNavbar.js";
+import Navbar from "../../components/AdminNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -19,7 +19,6 @@ const AdminProfile = () => {
     department: profileData.department,
     bio: profileData.bio,
   });
-
 
   // clicking edit profile
   const handleEditProfile = () => {
@@ -47,7 +46,11 @@ const AdminProfile = () => {
             {profileData.orgBatch} | {profileData.department}
           </p>
           <p className={styles.bio}>Bio: {profileData.bio}</p>
-          <button className={styles.editButton} id={styles.btn} onClick={handleEditProfile}>
+          <button
+            className={styles.editButton}
+            id={styles.btn}
+            onClick={handleEditProfile}
+          >
             Edit Profile
           </button>
         </div>
@@ -67,13 +70,18 @@ const AdminProfile = () => {
               handleSaveChanges(updatedProfileData);
             }}
           >
-            <div className= {styles.formfields}>
+            <div className={styles.formfields}>
               <label>
                 Name:
                 <input
                   type="text"
                   value={updatedProfileData.name}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, name: e.target.value })}
+                  onChange={(e) =>
+                    setUpdatedProfileData({
+                      ...updatedProfileData,
+                      name: e.target.value,
+                    })
+                  }
                 />
               </label>
               <br />
@@ -82,7 +90,12 @@ const AdminProfile = () => {
                 <input
                   type="text"
                   value={updatedProfileData.orgBatch}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, orgBatch: e.target.value })}
+                  onChange={(e) =>
+                    setUpdatedProfileData({
+                      ...updatedProfileData,
+                      orgBatch: e.target.value,
+                    })
+                  }
                 />
               </label>
               <br />
@@ -91,7 +104,12 @@ const AdminProfile = () => {
                 <input
                   type="text"
                   value={updatedProfileData.department}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, department: e.target.value })}
+                  onChange={(e) =>
+                    setUpdatedProfileData({
+                      ...updatedProfileData,
+                      department: e.target.value,
+                    })
+                  }
                 />
               </label>
               <br />
@@ -99,11 +117,22 @@ const AdminProfile = () => {
                 Bio:
                 <textarea
                   value={updatedProfileData.bio}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, bio: e.target.value })}
+                  onChange={(e) =>
+                    setUpdatedProfileData({
+                      ...updatedProfileData,
+                      bio: e.target.value,
+                    })
+                  }
                 />
               </label>
               <br />
-              <button className={styles.editButton} id={styles.btn} type="submit">Save Changes</button>
+              <button
+                className={styles.editButton}
+                id={styles.btn}
+                type="submit"
+              >
+                Save Changes
+              </button>
             </div>
           </form>
         </div>
