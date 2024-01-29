@@ -13,6 +13,9 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
+
 // get specific
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id)) return res.status(404).json({error: 'invalid id'});

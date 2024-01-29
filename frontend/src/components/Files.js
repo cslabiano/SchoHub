@@ -5,6 +5,7 @@ import { FaFilePdf } from "react-icons/fa";
 import { FaFileAlt } from "react-icons/fa";
 import styles from "./Files.module.css";
 
+
 class Files extends React.Component {
     fileType() {
         const type = this.props.type;

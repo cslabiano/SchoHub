@@ -9,6 +9,7 @@ import UserDashboard from "./pages/user/Dashboard.js";
 import UserFolderView from "./pages/user/FolderView.js";
 import RequestForm from "./pages/user/RequestForm.js";
 import UserProfile from "./pages/profile/UserProfile.js";
+import UserCMSC21 from "./pages/user/CMSC21.js";
 
 // import admin view pages
 import AdminDashboard from "./pages/admin/Dashboard.js";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/user/dashboard" element={<UserDashboard />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/user/folderView" element={<UserFolderView />} />
+        <Route path="/user/CMSC21" element={<UserCMSC21 />} />
         <Route path="/admin/folderView" element={<AdminFolderView />} />
         <Route path="/user/profile" element={<UserProfile />} />
         <Route path="/admin/manage" element={<ManageFiles />} />

@@ -17,8 +17,9 @@ app.use(bodyParser.json());
 app.use('/api/users', usersController);
 app.use('/api/resources', resourcesController);
 app.use('/api/residents', residentsController);
+app.use("/files", express.static("files"));
 
-
+//connect to mongodb 
 mongoose.connect(uri)
   .then(() => {
     console.log('MongoDB connected');
@@ -27,8 +28,26 @@ mongoose.connect(uri)
     console.error('MongoDB connection error:', err);
   });
 
+
+
   const PORT = 3001; // Use any available port
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
-  
+
+
+//--for the resources part--
+app.use("/files", express.static("files"));
+
+const resources = mongoose.model("resources");
+
+app.get('/get-files', async (req, res) => {
+  resources.find({}).then((data) => { //find documents from the collection
+      res.send( {status: "ok", data: data});
+  }).catch((err) => {
+      console.log('error: ', err);
+  });
+});
+
+
+

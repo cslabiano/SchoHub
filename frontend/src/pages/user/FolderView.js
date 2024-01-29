@@ -1,9 +1,16 @@
 import Navbar from "../../components/UserNavbar.js";
 import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
+import { Link } from "react-router-dom";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import styles from "./FolderView.module.css";
+
+
+/* //folder is clicked
+const handleClick = () => {
+    console.log('You clicked me');
+} */
 
 const UserFolderView = () => {
     return (
@@ -20,7 +27,9 @@ const UserFolderView = () => {
                     Folders
                 </p>
                 <div className={styles.container}>
-                    <Folders title={"CMSC 12"}/>
+                    <Link to="/user/CMSC21" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Folders title={"CMSC 21"}/>
+                    </Link>
                     <Folders title={"CMSC 22"}/>
                     <Folders title={"CMSC 123"}/>
                     <Folders title={"CMSC 130"}/>

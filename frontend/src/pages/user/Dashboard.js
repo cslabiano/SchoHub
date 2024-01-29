@@ -1,5 +1,6 @@
 import Navbar from "../../components/UserNavbar.js";
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styles from "./Dashboard.module.css";
@@ -11,15 +12,18 @@ const UserDashboard = () => {
             <button id={styles.addFile}>
                 <FaPlus /> <p>Add File</p>
             </button>
+
             <div className={styles.partition}>
                 <p className={styles.heading}>
                     Dashboard
                 </p>
+                
                 <div className={styles.container}>
+                <Link to="/user/folderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
-
                         <div className={styles.courseDetails}>
+                        
                             <div className={styles.courseInfo}>
                                 <p className={styles.courseTitle}>
                                     CMSC
@@ -28,11 +32,14 @@ const UserDashboard = () => {
                                     last Updated: Sept 2022
                                 </p>
                             </div>
+                            
                             <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
                         </div>
                     </div>
+                    </Link>
+                   
 
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.math}> </div>
