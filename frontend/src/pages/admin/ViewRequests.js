@@ -83,11 +83,17 @@ const ViewRequest = () => {
                           paddingRight: "20px",
                         }}
                       >
-                        <span>Course: {req.course}</span>
+                        <span>
+                          <strong>Course:</strong> {req.course}
+                        </span>
                         <br />
-                        <span>File Requested: {req.file}</span>
+                        <span>
+                          <strong>File Requested:</strong> {req.file}
+                        </span>
                         <br />
-                        <span>Purpose: {req.purpose}</span>
+                        <span>
+                          <strong>Purpose:</strong> {req.purpose}
+                        </span>
                       </div>
                     </div>
                     <div className={styles.buttons}>
