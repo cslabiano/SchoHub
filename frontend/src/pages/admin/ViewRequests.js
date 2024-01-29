@@ -9,23 +9,26 @@ const ViewRequest = () => {
       fname: "Myndie",
       lname: "Labiano",
       date: "12/10/2023",
-      title: "CMSC 142",
-      description:
+      course: "CMSC 142",
+      file: "Course Guide",
+      purpose:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
-      fname: "Lea",
-      lname: "Somoson",
-      date: "02/20/2024",
-      title: "CMSC 100",
-      description: "Design and Implementation of Web Applications",
+      fname: "Markus",
+      lname: "Recaplaza",
+      date: "12/14/2023",
+      course: "CMSC 100",
+      file: "Course Guide",
+      purpose: "Design and Implementation of Web Applications",
     },
     {
       fname: "Arianna",
       lname: "Domingo",
       date: "01/25/2024",
-      title: "CMSC 23",
-      description: "Mobile Computing",
+      course: "CMSC 23",
+      file: "Course Guide",
+      purpose: "Mobile Computing",
     },
   ]);
 
@@ -80,11 +83,11 @@ const ViewRequest = () => {
                           paddingRight: "20px",
                         }}
                       >
-                        <span className={styles.title}>{req.title}</span>
+                        <span>Course: {req.course}</span>
                         <br />
-                        <span className={styles.description}>
-                          {req.description}
-                        </span>
+                        <span>File Requested: {req.file}</span>
+                        <br />
+                        <span>Purpose: {req.purpose}</span>
                       </div>
                     </div>
                     <div className={styles.buttons}>
