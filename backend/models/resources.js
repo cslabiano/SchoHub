@@ -16,5 +16,4 @@ const fileDetails = new mongoose.Schema (
     {collection:"resources"}
 ); 
 
-mongoose.model("resources", fileDetails);
-
+module.exports = mongoose.model("resources", fileDetails);

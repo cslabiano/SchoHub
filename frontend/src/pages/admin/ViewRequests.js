@@ -1,36 +1,23 @@
 import Navbar from "../../components/AdminNavbar.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ViewRequests.module.css";
 
 const ViewRequest = () => {
   // remove the sample data for integration
-  const [requests, setRequests] = useState([
-    {
-      fname: "Myndie",
-      lname: "Labiano",
-      date: "12/10/2023",
-      course: "CMSC 142",
-      file: "Course Guide",
-      purpose:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      fname: "Markus",
-      lname: "Recaplaza",
-      date: "12/14/2023",
-      course: "CMSC 100",
-      file: "Course Guide",
-      purpose: "Design and Implementation of Web Applications",
-    },
-    {
-      fname: "Arianna",
-      lname: "Domingo",
-      date: "01/25/2024",
-      course: "CMSC 23",
-      file: "Course Guide",
-      purpose: "Mobile Computing",
-    },
-  ]);
+  const [requests, setRequests] = useState([]);
+  
+  const getRequestsData = async() => {
+    // retrieve requests data from database
+    const response = await fetch("http://localhost:3001/api/requests"); 
+    const data = await response.json(); 
+    console.log(data);
+    setRequests(data); // set requests data
+  }
+
+  // do for each request (load data every time)
+  useEffect(() => {
+    getRequestsData();
+  }, []);
 
   // function for resolve button, prints in console only
   const resolveBtn = (index) => {
