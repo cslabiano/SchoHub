@@ -37,14 +37,8 @@ body {
 }
 
 .heading {
-    padding-top: 50px;
-    font-size: x-large;
-    font-weight: bold;
-}
-
-.subHeading {
-    padding-top: 20px;
-    font-size: large;
+    padding-top: 2%;
+    color: #2b5b87;
 }
 
 .container {

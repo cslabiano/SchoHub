@@ -12,12 +12,14 @@ const UserFolderView = () => {
         <>
             <div><Navbar /></div>
             <div className={styles.partition}>
-                <p className={styles.heading}> 
+                {/* Current directory */}
+                <h4 className={styles.heading}> 
                     Root 
                     <FaAngleRight fontSize={30} />
                     CMSC 
-                </p>
+                </h4>
 
+                {/* Folders */}
                 <p className={styles.subHeading}>
                     Folders
                 </p>
@@ -31,6 +33,7 @@ const UserFolderView = () => {
                     <Folders title={"CMSC 150"}/>
                 </div>
 
+                {/* Files */}
                 <p className={styles.subHeading}>
                     Files
                 </p>

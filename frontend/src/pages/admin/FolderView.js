@@ -1,32 +1,37 @@
-import Navbar from "../../components/AdminNavbar.js";
+import Navbar from "../../components/UserNavbar.js";
 import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
+import { Link } from "react-router-dom";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import styles from "./FolderView.module.css";
 
-const AdminFolderView = () => {
+
+const UserFolderView = () => {
     return (
         <>
             <div><Navbar /></div>
             <div className={styles.partition}>
-                <p className={styles.heading}> 
+                {/* Current directory */}
+                <h4 className={styles.heading}> 
                     Root 
                     <FaAngleRight fontSize={30} />
                     CMSC 
-                </p>
+                </h4>
 
+                {/* Folders */}
                 <p className={styles.subHeading}>
                     Folders
                 </p>
                 <div className={styles.container}>
-                    <Folders title={"CMSC 12"}/>
+                    <Folders title={"CMSC 21"}/>
                     <Folders title={"CMSC 22"}/>
                     <Folders title={"CMSC 123"}/>
                     <Folders title={"CMSC 130"}/>
                     <Folders title={"CMSC 150"}/>
                 </div>
 
+                {/* Files */}
                 <p className={styles.subHeading}>
                     Files
                 </p>
@@ -39,4 +44,4 @@ const AdminFolderView = () => {
     );
 };
 
-export default AdminFolderView;
+export default UserFolderView;
