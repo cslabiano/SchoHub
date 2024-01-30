@@ -22,7 +22,7 @@ const LogIn = () => {
       
       // search if user exists in User collection
       const response = await fetch(`http://localhost:3001/login/${Email}/${Password}`); // pass Email and Password to index.js
-      const success = await response.json(); // if there is an account, will contain the class of the user; else will contain false
+      const success = await response.json(); // if there is an account, will contain the document of the user; else will contain false
       console.log("User class: ", success);
 
       if (success) {

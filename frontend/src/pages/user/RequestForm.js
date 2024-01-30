@@ -1,8 +1,36 @@
 import Navbar from "../../components/UserNavbar.js";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./RequestForm.module.css";
 
 const RequestForm = () => {
+  // use states
+  const [Lastname, setLastname] = useState("");
+  const [Firstname, setFirstname] = useState("");
+  const [RequestFilename, setRequestFilename] = useState("");
+  const [Purpose, setPurpose] = useState("");
+
+  const recordRequest = async(e) => {
+    e.preventDefault();
+    try {
+
+      // pass Lastname, Firstname, RequestFilename, and Purpose to index.js
+      const response = await fetch(`http://localhost:3001/record-request/${Lastname}/${Firstname}/${RequestFilename}/${Purpose}`);
+      const result = await response.json();
+
+      if (result){
+        console.log("File request recorded.");
+        window.location.reload(); // reload page to clear form
+        // NOTE: want to just clear out the form fields after clicking on submit, settled for refreshing the page instead
+        //       feel free to change if there is a better alternative
+      } else {
+        console.log("Failed to record file request.");
+      }     
+      
+    } catch (error) {
+      console.error("Error upon recording request:", error);
+    }
+  }
+
   return (
     <>
       <div>
@@ -12,7 +40,7 @@ const RequestForm = () => {
         <div className={styles.leftContainer}>
           <p className={styles.leftTitle}>Request a Material</p>
           <div className={styles.formContainer}>
-            <form class="row g-3">
+            <form class="row g-3" id="requestForm">
               <div class="col-md-5">
                 <label for="lastName" class="form-label">
                   Last Name
@@ -21,6 +49,8 @@ const RequestForm = () => {
                   type="text"
                   class="form-control"
                   id="lastName"
+                  value={Lastname}
+                  onChange={(e) => setLastname(e.target.value)}
                   placeholder="Enter your last name"
                 ></input>
               </div>
@@ -32,6 +62,8 @@ const RequestForm = () => {
                   type="text"
                   class="form-control"
                   id="firstName"
+                  value={Firstname}
+                  onChange={(e) => setFirstname(e.target.value)}
                   placeholder="Enter your first name"
                 ></input>
               </div>
@@ -43,6 +75,8 @@ const RequestForm = () => {
                   type="text"
                   class="form-control"
                   id="fileReq"
+                  value={RequestFilename}
+                  onChange={(e) => setRequestFilename(e.target.value)}
                   placeholder="Specify the name of the material"
                 ></input>
               </div>
@@ -58,6 +92,8 @@ const RequestForm = () => {
                   type="text"
                   class="form-control"
                   id="purposeReq"
+                  value={Purpose}
+                  onChange={(e) => setPurpose(e.target.value)}
                   placeholder="State why you requested the material"
                 ></input>
               </div>
@@ -79,7 +115,7 @@ const RequestForm = () => {
             </p>
           </div>
           <div className={styles.buttonBox}>
-            <button type="submit" class="btn btn-light">Submit</button>
+            <button type="submit" onClick={recordRequest} class="btn btn-light">Submit</button>
           </div>
           
         </div>
