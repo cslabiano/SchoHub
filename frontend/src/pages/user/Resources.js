@@ -6,11 +6,12 @@ import { FaAngleRight } from "react-icons/fa";
 import styles from "./FolderView.module.css";
 import axios from 'axios';
 import {useState} from "react";
+import { useParams } from "react-router-dom";
 
 
-
-const UserCMSC21 = () => {
-    const [allImage, setAllImage] = useState([]);
+const UserResources = () => {
+    const [allFiles, setAllFiles] = useState([]);
+    let {id} = useParams();
 
     useEffect(() => {
         getfiles();
@@ -20,11 +21,7 @@ const UserCMSC21 = () => {
     //get files from the api
     const getfiles = async () => {
     const file = await axios.get("http://localhost:3001/get-files");
-    setAllImage(file.data.data);
-    }
-
-    const showFiles = (file) => {
-        window.open("http://localhost:3001/files/${file}");
+    setAllFiles(file.data.data);
     }
 
     return (
@@ -44,8 +41,8 @@ const UserCMSC21 = () => {
                 <div className={styles.container}>
                     
                     
-                    {allImage.map((data) =>{
-                    if(data.course == "CMSC21"){
+                    {allFiles.map((data) =>{
+                    if(data.course == id){
                          //file destination
                         let api= "http://localhost:3001/files/";
                         let fileName= data.file_name;
@@ -76,4 +73,4 @@ const UserCMSC21 = () => {
     );
 };
 
-export default UserCMSC21;
+export default UserResources;

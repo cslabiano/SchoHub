@@ -7,11 +7,6 @@ import { FaAngleRight } from "react-icons/fa";
 import styles from "./FolderView.module.css";
 
 
-/* //folder is clicked
-const handleClick = () => {
-    console.log('You clicked me');
-} */
-
 const UserFolderView = () => {
     return (
         <>
@@ -27,7 +22,7 @@ const UserFolderView = () => {
                     Folders
                 </p>
                 <div className={styles.container}>
-                    <Link to="/user/CMSC21" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to="/user/resources/CMSC21" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <Folders title={"CMSC 21"}/>
                     </Link>
                     <Folders title={"CMSC 22"}/>
