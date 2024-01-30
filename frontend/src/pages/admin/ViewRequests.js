@@ -10,7 +10,7 @@ const ViewRequest = () => {
     // retrieve requests data from database
     const response = await fetch("http://localhost:3001/api/requests"); 
     const data = await response.json(); 
-    console.log(data);
+    //console.log(data);
     setRequests(data); // set requests data
   }
 
@@ -20,23 +20,43 @@ const ViewRequest = () => {
   }, []);
 
   // function for resolve button, prints in console only
-  const resolveBtn = (index) => {
+  const resolveBtn = async(index) => {
     const ticket = requests[index];
     console.log(`Resolved ${ticket.lname}'s request.`);
+    //console.log("ID: ", ticket._id);
 
-    const updatedRequests = [...requests];
-    updatedRequests.splice(index, 1);
-    setRequests(updatedRequests);
+    // delete specific request document in database
+    const response = await fetch(`http://localhost:3001/api/requests/${ticket._id}`, {
+      method: 'DELETE',
+    });
+    const result = await response.json;
+    console.log(result);
+
+    getRequestsData(); // update data and displayed requests
+
+    // const updatedRequests = [...requests];
+    // updatedRequests.splice(index, 1);
+    // setRequests(updatedRequests);
   };
 
   // similar function with resolve button, can be used for further improvements
-  const rejectBtn = (index) => {
+  const rejectBtn = async(index) => {
     const ticket = requests[index];
     console.log(`Rejected ${ticket.lname}'s request.`);
+    //console.log("ID: ", ticket._id);
 
-    const updatedRequests = [...requests];
-    updatedRequests.splice(index, 1);
-    setRequests(updatedRequests);
+    // delete specific request document in database
+    const response = await fetch(`http://localhost:3001/api/requests/${ticket._id}`, {
+      method: 'DELETE',
+    });
+    const result = await response.json;
+    console.log(result);
+
+    getRequestsData(); // update data and displayed requests
+
+    // const updatedRequests = [...requests];
+    // updatedRequests.splice(index, 1);
+    // setRequests(updatedRequests);
   };
 
   return (
