@@ -1,11 +1,23 @@
 import Navbar from "../../components/UserNavbar.js";
-import React from "react";
+import Files from "../../components/Files.js";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styles from "./Dashboard.module.css";
 
 const UserDashboard = () => {
+    const [files, setFiles] = useState([
+        {
+            name: "01_introduction_to_C_01",
+            type: "pdf"
+        },
+        {
+            name: "02_introduction_to_C_02",
+            type: "pdf"
+        },
+    ]);
+
     return (
         <>
             <div><Navbar /></div>
@@ -14,11 +26,12 @@ const UserDashboard = () => {
             </button>
 
             <div className={styles.partition}>
-                <p className={styles.heading}>
+                <h4 className={styles.heading}>
                     Dashboard
-                </p>
+                </h4>
                 
                 <div className={styles.container}>
+                {/* CMSC Course */}
                 <Link to="/user/folderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
@@ -33,6 +46,7 @@ const UserDashboard = () => {
                                 </p>
                             </div>
                             
+                            {/* More Button */}
                             <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
@@ -40,7 +54,7 @@ const UserDashboard = () => {
                     </div>
                     </Link>
                    
-
+                    {/* MATH Course */}
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
@@ -53,12 +67,15 @@ const UserDashboard = () => {
                                     last Updated: Sept 2022
                                 </p>
                             </div>
+
+                            {/* More Button */}
                             <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
                         </div>
                     </div>
 
+                    {/* STAT Course */}
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
@@ -71,12 +88,15 @@ const UserDashboard = () => {
                                     last Updated: Sept 2022
                                 </p>
                             </div>
+
+                            {/* More Button */}
                             <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
                         </div>
                     </div>
 
+                    {/* OTHERS Course */}
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 
@@ -89,6 +109,8 @@ const UserDashboard = () => {
                                     last Updated: Sept 2022
                                 </p>
                             </div>
+
+                            {/* More Button */}
                             <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
@@ -99,22 +121,20 @@ const UserDashboard = () => {
             </div>
 
             <div className={styles.partition}>
-                <p className={styles.heading}>
+                <h4 className={styles.heading}>
                     Bookmarks
-                </p>
+                </h4>
 
-                <p className={styles.subHeading}>
-                    Folders
-                </p>
                 <div className={styles.container}>
-
-                </div>
-
-                <p className={styles.subHeading}>
-                    Files
-                </p>
-                <div className={styles.container}>
-
+                    {files.map((file) => {
+                        return (
+                            <>
+                                <a href = {"http://localhost:3001/files/" + file.name + "." + file.type} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                    <Files title={file.name} type={file.type}/>
+                                </a>
+                            </>
+                        )
+                    })}
                 </div>
             </div>
             

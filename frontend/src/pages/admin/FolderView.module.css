@@ -10,9 +10,8 @@ body {
 }
 
 .heading {
-    padding-top: 50px;
-    font-size: x-large;
-    font-weight: bold;
+    padding-top: 2%;
+    color: #2b5b87;
 }
 
 .subHeading {
