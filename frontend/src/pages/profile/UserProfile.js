@@ -7,20 +7,20 @@ import { IoClose } from "react-icons/io5";
 
 const UserProfile = () => {
   const notifs = [
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      purpose:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      status: "Accepted",
-    },
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      purpose:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      status: "Rejected",
-    },
+    // {
+    //   course: "Course 101",
+    //   file: "Course Guide",
+    //   purpose:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //   status: "Accepted",
+    // },
+    // {
+    //   course: "Course 101",
+    //   file: "Course Guide",
+    //   purpose:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //   status: "Rejected",
+    // },
   ];
 
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
