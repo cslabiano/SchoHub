@@ -4,9 +4,8 @@ import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import styles from "./Navbar.module.css";
-import {useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 
 const UserNavbar = () => {
   const [input, setInput] = useState("");
@@ -79,22 +78,20 @@ const UserNavbar = () => {
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
-                      value = {input}
-                      onChange = {(e) => setInput(e.target.value)}
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
                     />
                     <button
                       className="btn btn-outline-success"
                       id={styles.btn}
                       type="submit"
-                      onClick = {() => {
-                          if(input === ""){
-                            alert("File not found!")
-                          } else {
-                            navigate('/user/files/' +  input)
-                          }
-                          
+                      onClick={() => {
+                        if (input === "") {
+                          alert("File not found!");
+                        } else {
+                          navigate("/user/files/" + input);
                         }
-                      }
+                      }}
                     >
                       <IoSearch />
                     </button>
