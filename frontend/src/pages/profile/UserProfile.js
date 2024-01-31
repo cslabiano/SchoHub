@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/UserNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
+import axios from 'axios';
 
 const UserProfile = () => {
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
@@ -20,18 +21,40 @@ const UserProfile = () => {
     bio: profileData.bio,
   });
 
+  // update user profile
+  UserProfile.get('/',(req, res) => {
+    let username = req.query.username || '';
+    username = username.replace('');
+    if (!username || !password || users[username]) {
+      return res.sendStatus(400);
+    }
+  });
+  
+  UserProfile.post('/', (req, res, next) => {
+    const users = req.app.locals.users;
+    const { name, orgBatch, department, bio } = req.body;
+    // const _id = ObjectID(req.session.passport.user);
 
-  // clicking edit profile
+    users.updateOne( {$set: {name, orgBatch, department, bio}});
+    
+
+    res.redirect('/users')
+  });
+
   const handleEditProfile = () => {
     setIsEditPopupVisible(true);
   };
 
-  // form submission
-  const handleSaveChanges = (updatedProfileData) => {
-    setProfileData(updatedProfileData);
-    setIsEditPopupVisible(false);
-  };
+  const handleSaveChanges = async () => {
+    try {
+      await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
+      setProfileData(updatedProfileData);
+      setIsEditPopupVisible(false);
+    } catch (error) {
+      console.error(error);
+    }
 
+  
   return (
     <>
       <div className={styles.container}>
@@ -63,8 +86,7 @@ const UserProfile = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-
-              handleSaveChanges(updatedProfileData);
+              handleSaveChanges();
             }}
           >
             <div className= {styles.formfields}>
@@ -110,6 +132,7 @@ const UserProfile = () => {
       )}
     </>
   );
+ };
 };
 
 export default UserProfile;
