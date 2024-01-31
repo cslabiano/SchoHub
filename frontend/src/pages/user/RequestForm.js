@@ -42,19 +42,6 @@ const RequestForm = () => {
           <div className={styles.formContainer}>
             <form class="row g-3" id="requestForm">
               <div class="col-md-5">
-                <label for="lastName" class="form-label">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lastName"
-                  value={Lastname}
-                  onChange={(e) => setLastname(e.target.value)}
-                  placeholder="Enter your last name"
-                ></input>
-              </div>
-              <div class="col-md-5">
                 <label for="firstName" class="form-label">
                   First Name
                 </label>
@@ -65,6 +52,19 @@ const RequestForm = () => {
                   value={Firstname}
                   onChange={(e) => setFirstname(e.target.value)}
                   placeholder="Enter your first name"
+                ></input>
+              </div>
+              <div class="col-md-5">
+                <label for="lastName" class="form-label">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  value={Lastname}
+                  onChange={(e) => setLastname(e.target.value)}
+                  placeholder="Enter your last name"
                 ></input>
               </div>
               <div class="col-10">
@@ -83,19 +83,20 @@ const RequestForm = () => {
               <div class="col-10">
                 <p className={styles.fileFormat1}>Enter the file name in this format:</p>
                 <p className={styles.fileFormat2}>&lt;Subject&gt;_&lt;SubjectCode&gt;_&lt;Module#/Exam#&gt;_&lt;TypeOfMaterial&gt;</p>
+                <p className={styles.fileFormat2}>Example: CMSC_21_Module5_Problem Set</p>
               </div>
               <div class="col-10">
                 <label for="purpose" class="form-label">
                   Purpose of Request
                 </label>
-                <input
+                <textarea
                   type="text"
                   class="form-control"
                   id="purposeReq"
                   value={Purpose}
                   onChange={(e) => setPurpose(e.target.value)}
                   placeholder="State why you requested the material"
-                ></input>
+                ></textarea>
               </div>
             </form>
           </div>

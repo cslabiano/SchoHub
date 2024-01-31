@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styles from "./Dashboard.module.css";
+import AddFileModal from "./AddFile.js";
 
 const UserDashboard = () => {
     const [files, setFiles] = useState([
@@ -21,9 +22,8 @@ const UserDashboard = () => {
     return (
         <>
             <div><Navbar /></div>
-            <button id={styles.addFile}>
-                <FaPlus /> <p>Add File</p>
-            </button>
+                
+                <AddFileModal /> 
 
             <div className={styles.partition}>
                 <h4 className={styles.heading}>
@@ -139,7 +139,6 @@ const UserDashboard = () => {
                     })}
                 </div>
             </div>
-            
         </>
     );
 };
