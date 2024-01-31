@@ -32,7 +32,7 @@ const AdminDashboard = () => {
                 
                 <div className={styles.container}>
                 {/* CMSC Course */}
-                <Link to="/admin/folderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                <Link to="/admin/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
                         <div className={styles.courseDetails}>
@@ -53,8 +53,8 @@ const AdminDashboard = () => {
                         </div>
                     </div>
                     </Link>
-                   
                     {/* MATH Course */}
+                <Link to="/admin/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
@@ -74,8 +74,9 @@ const AdminDashboard = () => {
                             </button>
                         </div>
                     </div>
-
+                    </Link>
                     {/* STAT Course */}
+                <Link to="/admin/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
@@ -95,8 +96,9 @@ const AdminDashboard = () => {
                             </button>
                         </div>
                     </div>
-
+                </Link>
                     {/* OTHERS Course */}
+                <Link to="/admin/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 
@@ -116,7 +118,7 @@ const AdminDashboard = () => {
                             </button>
                         </div>
                     </div>
-                    
+                    </Link>
                 </div>
             </div>
 
