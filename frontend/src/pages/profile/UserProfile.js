@@ -3,23 +3,24 @@ import Navbar from "../../components/UserNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { TbBellX } from "react-icons/tb";
+import { IoClose } from "react-icons/io5";
 
 const UserProfile = () => {
   const notifs = [
-    // {
-    //   course: "Course 101",
-    //   file: "Course Guide",
-    //   purpose:
-    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    //   status: "Accepted",
-    // },
-    // {
-    //   course: "Course 101",
-    //   file: "Course Guide",
-    //   purpose:
-    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //   status: "Rejected",
-    // },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      purpose:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      status: "Accepted",
+    },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      purpose:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      status: "Rejected",
+    },
   ];
 
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
@@ -183,37 +184,72 @@ const UserProfile = () => {
                 </>
               ) : (
                 <>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      // onClick={() => handleClear()}
+                      style={{
+                        borderColor: "#274C77",
+                        color: "#274C77",
+                        marginRight: "2%",
+                      }}
+                    >
+                      CLEAR ALL
+                    </button>
+                  </div>
                   {/* similar to the function "for each", calls for the list named "notif" */}
                   {notifs.map((notif, index) => {
                     return (
                       <>
-                        <div key={index} className={styles.reqContainer}>
-                          <div>
-                            <div style={{ marginBottom: "14px" }}>
-                              <h5 style={{ marginBottom: 0 }}>
-                                {notif.fname} {notif.lname}
-                              </h5>
-                              <span>{notif.date}</span>
-                            </div>
-                            <div
+                        <div
+                          key={index}
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <div
+                            style={{
+                              paddingRight: "20px",
+                              marginLeft: "8%",
+                              width: "75%",
+                            }}
+                          >
+                            <span>
+                              <strong>Course:</strong> {notif.course}
+                            </span>
+                            <br />
+                            <span>
+                              <strong>File Requested:</strong> {notif.file}
+                            </span>
+                            <br />
+                            <span>
+                              <strong>Purpose:</strong> {notif.purpose}
+                            </span>
+                            <br />
+                            <span>
+                              <strong>Status:</strong> {notif.status}
+                            </span>
+                          </div>
+                          <div style={{ marginRight: "6%" }}>
+                            <button
+                              className="btn btn-light"
+                              // onClick={() => handleDelete(index)}
                               style={{
-                                paddingRight: "20px",
+                                // paddingTop: 3,
+                                height: "40px",
+                                borderRadius: "50%",
                               }}
                             >
-                              <span>
-                                <strong>Course:</strong> {notif.course}
-                              </span>
-                              <br />
-                              <span>
-                                <strong>File Requested:</strong> {notif.file}
-                              </span>
-                              <br />
-                              <span>
-                                <strong>Status:</strong> {notif.status}
-                              </span>
-                            </div>
+                              <IoClose color="#8B8C89" />
+                            </button>
                           </div>
-                          <div className={styles.buttons}></div>
                         </div>
                         {index === notifs.length - 1 ? (
                           <></>

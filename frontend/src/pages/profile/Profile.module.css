@@ -1,15 +1,9 @@
 .container {
   font-family: "Inter";
-  /* background-color: orange; */
 }
 
 .left {
   width: 40%;
-  /* background-color: yellow; */
-}
-
-.title {
-  /* background-color: pink; */
 }
 
 .right {
