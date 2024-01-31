@@ -35,7 +35,10 @@ const AdminProfile = () => {
     <>
       <div className={styles.container}>
         <Navbar />
-        <div className={styles.title}>
+        <div
+          className={styles.title}
+          style={{ paddingTop: "2%", paddingLeft: "5%", paddingBottom: 0 }}
+        >
           <h4 className={styles.h4}>Profile</h4>
         </div>
         <div className={styles.profileSection}>

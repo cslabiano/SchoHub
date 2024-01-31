@@ -19,9 +19,10 @@ const LogIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
       // search if user exists in User collection
-      const response = await fetch(`http://localhost:3001/login/${Email}/${Password}`); // pass Email and Password to index.js
+      const response = await fetch(
+        `http://localhost:3001/login/${Email}/${Password}`
+      ); // pass Email and Password to index.js
       const success = await response.json(); // if there is an account, will contain the document of the user; else will contain false
       console.log("User class: ", success);
 
@@ -182,30 +183,6 @@ const LogIn = () => {
                   Sign in with Google
                 </div>
               </button>
-            </div>
-            <div
-              style={{
-                color: "#929292",
-                fontWeight: "bold",
-                fontFamily: "Lato, sans serif",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "flex-end",
-                marginTop: "auto",
-              }}
-            >
-              Don't have an account yet?{" "}
-              <Link
-                to="/register"
-                style={{
-                  color: "#929292",
-                  fontWeight: "bold",
-                  fontFamily: "Lato, sans serif",
-                  marginLeft: "5px",
-                }}
-              >
-                Sign up
-              </Link>
             </div>
           </div>
         </div>
