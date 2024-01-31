@@ -2,8 +2,26 @@ import React, { useState } from "react";
 import Navbar from "../../components/UserNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
+import { TbBellX } from "react-icons/tb";
 
 const UserProfile = () => {
+  const notifs = [
+    // {
+    //   course: "Course 101",
+    //   file: "Course Guide",
+    //   purpose:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //   status: "Accepted",
+    // },
+    // {
+    //   course: "Course 101",
+    //   file: "Course Guide",
+    //   purpose:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //   status: "Rejected",
+    // },
+  ];
+
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
@@ -20,7 +38,6 @@ const UserProfile = () => {
     bio: profileData.bio,
   });
 
-
   // clicking edit profile
   const handleEditProfile = () => {
     setIsEditPopupVisible(true);
@@ -34,80 +51,184 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className={styles.container}>
-        <Navbar />
-        <div className={styles.title}>
-          <h4 className={styles.h4}>Profile</h4>
+      <Navbar />
+      <div className={styles.container} style={{ display: "flex" }}>
+        <div
+          className={styles.left}
+          style={{ borderRight: "1px solid", borderColor: "#C7C7C7" }}
+        >
+          <div
+            className={styles.title}
+            style={{ paddingTop: "5%", paddingLeft: "12%" }}
+          >
+            <h4 className={styles.h4}>Profile</h4>
+          </div>
+          <div className={styles.profileSection}>
+            <FaUserCircle fontSize={150} color="#274c77" />
+            <p className={styles.classification}>Classification: User</p>
+            <h4 className={styles.h4}>Name: {profileData.name}</h4>
+            <p className={styles.boldText}>
+              {profileData.orgBatch} | {profileData.department}
+            </p>
+            <p className={styles.bio}>Bio: {profileData.bio}</p>
+            <button
+              className={styles.editButton}
+              id={styles.btn}
+              onClick={handleEditProfile}
+            >
+              Edit Profile
+            </button>
+          </div>
+
+          {/* edit profile popup */}
+          {isEditPopupVisible && (
+            <div className={styles.editPopup}>
+              <div className={styles.title}>
+                <h4 class={styles.h4}>Edit Profile</h4>
+              </div>
+              {/* edit profile form */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+
+                  handleSaveChanges(updatedProfileData);
+                }}
+              >
+                <div className={styles.formfields}>
+                  <label>
+                    Name:
+                    <input
+                      type="text"
+                      value={updatedProfileData.name}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          name: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <label>
+                    Org Batch:
+                    <input
+                      type="text"
+                      value={updatedProfileData.orgBatch}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          orgBatch: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <label>
+                    Department:
+                    <input
+                      type="text"
+                      value={updatedProfileData.department}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          department: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <label>
+                    Bio:
+                    <textarea
+                      value={updatedProfileData.bio}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          bio: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <button
+                    className={styles.editButton}
+                    id={styles.btn}
+                    type="submit"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
         </div>
-        <div className={styles.profileSection}>
-          <FaUserCircle fontSize={150} color="#274c77" />
-          <p className={styles.classification}>Classification: User</p>
-          <h4 className={styles.h4}>Name: {profileData.name}</h4>
-          <p className={styles.boldText}>
-            {profileData.orgBatch} | {profileData.department}
-          </p>
-          <p className={styles.bio}>Bio: {profileData.bio}</p>
-          <button className={styles.editButton} id={styles.btn} onClick={handleEditProfile}>
-            Edit Profile
-          </button>
+        <div className={styles.right}>
+          <div
+            className={styles.title}
+            style={{ paddingTop: "3.30%", paddingLeft: "6%" }}
+          >
+            <h4 className={styles.h4}>Notification</h4>
+          </div>
+          {/* div for containing the requests dynamically */}
+          <div className="container" style={{ marginTop: "3%" }}>
+            <div className="row g-4">
+              {notifs.length === 0 ? (
+                <>
+                  <div className="text-center" style={{ marginTop: "15%" }}>
+                    <TbBellX fontSize={200} color="#8B8C89" />
+                    <h4 style={{ color: "#8B8C89" }}>
+                      Your notification is empty.
+                    </h4>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* similar to the function "for each", calls for the list named "notif" */}
+                  {notifs.map((notif, index) => {
+                    return (
+                      <>
+                        <div key={index} className={styles.reqContainer}>
+                          <div>
+                            <div style={{ marginBottom: "14px" }}>
+                              <h5 style={{ marginBottom: 0 }}>
+                                {notif.fname} {notif.lname}
+                              </h5>
+                              <span>{notif.date}</span>
+                            </div>
+                            <div
+                              style={{
+                                paddingRight: "20px",
+                              }}
+                            >
+                              <span>
+                                <strong>Course:</strong> {notif.course}
+                              </span>
+                              <br />
+                              <span>
+                                <strong>File Requested:</strong> {notif.file}
+                              </span>
+                              <br />
+                              <span>
+                                <strong>Status:</strong> {notif.status}
+                              </span>
+                            </div>
+                          </div>
+                          <div className={styles.buttons}></div>
+                        </div>
+                        {index === notifs.length - 1 ? (
+                          <></>
+                        ) : (
+                          <hr style={{ marginBottom: 0 }} />
+                        )}
+                      </>
+                    );
+                  })}
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* edit profile popup */}
-      {isEditPopupVisible && (
-        <div className={styles.editPopup}>
-          <div className={styles.title}>
-            <h2 class={styles.h4}>Edit Profile</h2>
-          </div>
-          {/* edit profile form */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-
-              handleSaveChanges(updatedProfileData);
-            }}
-          >
-            <div className= {styles.formfields}>
-              <label>
-                Name:
-                <input
-                  type="text"
-                  value={updatedProfileData.name}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, name: e.target.value })}
-                />
-              </label>
-              <br />
-              <label>
-                Org Batch:
-                <input
-                  type="text"
-                  value={updatedProfileData.orgBatch}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, orgBatch: e.target.value })}
-                />
-              </label>
-              <br />
-              <label>
-                Department:
-                <input
-                  type="text"
-                  value={updatedProfileData.department}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, department: e.target.value })}
-                />
-              </label>
-              <br />
-              <label>
-                Bio:
-                <textarea
-                  value={updatedProfileData.bio}
-                  onChange={(e) => setUpdatedProfileData({ ...updatedProfileData, bio: e.target.value })}
-                />
-              </label>
-              <br />
-              <button className={styles.editButton} id={styles.btn} type="submit">Save Changes</button>
-            </div>
-          </form>
-        </div>
-      )}
     </>
   );
 };

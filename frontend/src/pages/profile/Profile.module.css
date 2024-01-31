@@ -1,10 +1,19 @@
 .container {
   font-family: "Inter";
+  /* background-color: orange; */
+}
+
+.left {
+  width: 40%;
+  /* background-color: yellow; */
 }
 
 .title {
-  padding: 2% 5%;
-  padding-bottom: 0%;
+  /* background-color: pink; */
+}
+
+.right {
+  width: 60%;
 }
 
 .h4 {
@@ -15,6 +24,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 82vh;
 }
 
 .classification {
@@ -25,7 +36,7 @@
   color: white;
   background-color: #274c77;
   padding: 10px 20px;
-  margin-top: 20px;
+  margin-top: 50px;
   border-radius: 15px;
   border-color: #274c77;
   font-size: 17px;
