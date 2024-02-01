@@ -3,13 +3,35 @@ import styles from "./AddFile.module.css";
 import buttonstyle from "./Dashboard.module.css";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
+import axios from 'axios';
+
 
 const AddFileModal = ({closeModal}) => {
     const [showModal, setShowModal] = useState(false);
+    const [course,setCourse] = useState("");
+    const [title,setTitle] = useState("");
+    const [file,setFile] = useState();
+    const [type,setType] = useState("");
 
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
+    function handleFile(event) {
+        setFile(event.target.files[0]);
+    }
+
+    const uploadFile = async(e) => {
+        setShowModal(false);
+        e.preventDefault();
+        const fileData = new FormData();
+        fileData.append("course",course);
+        fileData.append("title",title);
+        fileData.append("file",file);
+        fileData.append("type",type);
+
+        const data = await axios.post("http://localhost:3001/upload-files",fileData, {headers: {"Content-Type": "multipart/form-data"}})
+
+    }
         return (
             <>
                 {/* Add file button */}
@@ -38,6 +60,7 @@ const AddFileModal = ({closeModal}) => {
                                     class="form-control"
                                     id="course"
                                     placeholder="Enter course"
+                                    onChange = {(e) => setCourse(e.target.value)}
                                     ></input>
                                 </div>
                                 {/* File Name */}
@@ -50,6 +73,7 @@ const AddFileModal = ({closeModal}) => {
                                     class="form-control"
                                     id="file_name"
                                     placeholder="Enter file name"
+                                    onChange = {(e) => setTitle(e.target.value)}
                                     ></input>
                                 </div>
                                 {/* Link */}
@@ -74,6 +98,7 @@ const AddFileModal = ({closeModal}) => {
                                     class="form-control"
                                     id="type"
                                     placeholder="State the type of your material"
+                                    onChange = {(e) => setType(e.target.value)}
                                     ></input>
                                 </div>
                                 {/* File Upload */}
@@ -81,12 +106,12 @@ const AddFileModal = ({closeModal}) => {
                                     <label for="formFile" class="form-label  text-white">
                                         File Upload
                                     </label>
-                                    <input class="form-control" type="file" id="formFile"></input>
+                                    <input class="form-control" type="file" id="file" name = "file" accept = "application/pdf" onChange = {handleFile}></input>
                                 </div>
                             </div>  
                         </form>
                         {/* Button for submitting, also closes the modal after submitting */}
-                        <button className={styles.button} onClick={handleClose}>
+                        <button className={styles.button} onClick={uploadFile}>
                             Submit
                         </button>
                     </div>

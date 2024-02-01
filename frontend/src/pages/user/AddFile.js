@@ -7,9 +7,11 @@ import { FaPlus } from "react-icons/fa";
 const AddFileModal = ({closeModal}) => {
     const [showModal, setShowModal] = useState(false);
 
+
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
+   
         return (
             <>
                 {/* Add file button */}
