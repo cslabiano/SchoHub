@@ -39,33 +39,44 @@ const UserProfile = () => {
     department: profileData.department,
     bio: profileData.bio,
   });
+
   // update user profile
-  UserProfile.get('/',(req, res) => {
-    let username = req.query.username || '';
-    username = username.replace('');
-    if (!username || !password || users[username]) {
-      return res.sendStatus(400);
-    }
-  });
-  
-  UserProfile.post('/', (req, res, next) => {
-    const users = req.app.locals.users;
-    const { name, orgBatch, department, bio } = req.body;
-    // const _id = ObjectID(req.session.passport.user);
-
-    users.updateOne( {$set: {name, orgBatch, department, bio}});
-    
-
-    res.redirect('/users')
-  });
-
   const handleEditProfile = () => {
     setIsEditPopupVisible(true);
   };
 
   const handleSaveChanges = async () => {
     try {
-      await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
+
+      UserProfile.get('/',(req, res,next) => {
+      const users = req.app.locals.users;
+      const username = req.params.username;
+
+      users.findOne({ username }, (err, results) => {
+        if (err || !results) {
+          res.render('profile', {message: {error: ['User not found']}});
+        }
+      
+        res.render('profile', { ...results, username});
+      });
+    });
+  
+    UserProfile.post('/', (req, res, next) => {
+      const users = req.app.locals.users;
+      const { name, orgBatch, department, bio } = req.body;
+      // const _id = ObjectID(req.session.passport.user);
+
+      users.updateOne({_id }, {$set: {name, orgBatch, department, bio}}, 
+        (err) => {
+          if (err) {
+            throw err;
+          }
+
+          res.redirect('/users')
+        });
+      });
+      
+      // await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
       setProfileData(updatedProfileData);
       setIsEditPopupVisible(false);
     } catch (error) {
