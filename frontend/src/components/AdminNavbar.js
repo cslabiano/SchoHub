@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import styles from "./Navbar.module.css";
 
 const AdminNavbar = () => {
+  let IDparam = useParams(); // get userID parameters from URL
+  const userID = IDparam.userID; // obtain value of userID from json format
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -38,7 +41,7 @@ const AdminNavbar = () => {
               >
                 <div class="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/admin/dashboard"
+                    to={`/admin/${userID}/dashboard`}
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
@@ -47,7 +50,7 @@ const AdminNavbar = () => {
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/admin/manage"
+                    to={`/admin/${userID}/manage`}
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
@@ -56,7 +59,7 @@ const AdminNavbar = () => {
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/admin/view"
+                    to={`/admin/${userID}/view`}
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
@@ -94,7 +97,7 @@ const AdminNavbar = () => {
                 </div>
 
                 {/* profile */}
-                <Link to="/admin/profile" style={{ textDecoration: "none" }}>
+                <Link to={`/admin/${userID}/profile`} style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
                     id={styles.btn}

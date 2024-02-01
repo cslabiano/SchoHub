@@ -1,8 +1,12 @@
 import Navbar from "../../components/AdminNavbar.js";
 import React, { useState } from "react";
 import styles from "./ManageFiles.module.css";
+//import { useParams } from "react-router-dom";
 
 const ManageFiles = () => {
+    // let IDparam = useParams(); // get userID parameters from URL
+    // const userID = IDparam.userID; // obtain value of userID from json format
+
     const [files, setFiles] = useState([
         {
             ftitle: "regression.pdf",

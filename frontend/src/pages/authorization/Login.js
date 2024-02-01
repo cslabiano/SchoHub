@@ -10,7 +10,7 @@ const LogIn = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
-  //let [userID, setUserID] = useState("");
+  //const [userID, setUserID] = useState("");
 
   // Obtain the navigate function
   const navigate = useNavigate();
@@ -24,12 +24,15 @@ const LogIn = () => {
         `http://localhost:3001/login/${Email}/${Password}`
       ); // pass Email and Password to index.js
       const success = await response.json(); // if there is an account, will contain the document of the user; else will contain false
-      console.log("User class: ", success);
+      //console.log("User class: ", success);
 
       if (success) {
         // Login successful
         toast.success("Logged in Successfully");
         console.log("Logged in Successfully");
+        
+        let userID = success._id; // take note of returned user ID
+
         //console.log(Email, Password);
         //console.log("class user: ", success);
 
@@ -42,9 +45,9 @@ const LogIn = () => {
         // Check user type and navigate accordingly
         if (success.class === "admin") {
           console.log("Going to admin");
-          navigate("/admin/dashboard"); // Redirect to the admin page for Merchants
+          navigate(`/admin/${userID}/dashboard`); // Redirect to the admin page for Merchants
         } else {
-          navigate("/user/dashboard"); // Redirect to the shop page for Customers
+          navigate(`/user/${userID}/dashboard`); // Redirect to the shop page for Customers
         }
       } else {
         // Login failed

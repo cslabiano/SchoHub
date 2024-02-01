@@ -86,7 +86,7 @@ app.get('/record-request/:Lastname/:Firstname/:RequestFilename/:Purpose', async(
   // split filename
   // format: <Subject>_<SubjectCode>_<Module#/Exam#>_<TypeOfMaterial>
   const filenameSections = RequestFilename.split("_"); // use underscore as a delimiter
-  const courseCode = filenameSections[1];
+  const courseCode = filenameSections[0] + " " + filenameSections[1];
   const fileDescription = filenameSections[2] + "_" + filenameSections[3];
 
   // construct date

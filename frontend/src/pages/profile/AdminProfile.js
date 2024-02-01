@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/AdminNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 const AdminProfile = () => {
+  let IDparam = useParams(); // get userID parameters from URL
+  const userID = IDparam.userID; // obtain value of userID from json format
+
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
-    name: "Lorem Ipsum Dolor",
-    orgBatch: "Org Batch",
-    department: "Department",
-    bio: "Lorem Ipsum Dolor SIt Amet",
+    // name: "Lorem Ipsum Dolor",
+    // orgBatch: "Org Batch",
+    // department: "Department",
+    // bio: "Lorem Ipsum Dolor SIt Amet",
   });
+
+  // to display user information in profile page
+  const handleSetUserData = async() => {
+    console.log(userID);
+    const response = await fetch(`http://localhost:3001/api/users/${userID}`); // get specific user document from users collection
+    const user = await response.json();
+    setProfileData({ // set profile using retrieved user document's information
+      name: user.name,
+      orgBatch: user.batch,
+      department: user.department,
+      bio: user.bio,
+    })
+  }
+
+  useEffect(() => {
+    handleSetUserData(); // load the user data corresponding to the user ID
+  }, []);
+
 
   const [updatedProfileData, setUpdatedProfileData] = useState({
     name: profileData.name,
@@ -26,8 +48,33 @@ const AdminProfile = () => {
   };
 
   // form submission
-  const handleSaveChanges = (updatedProfileData) => {
+  const handleSaveChanges = async(updatedProfileData, userID) => {
     setProfileData(updatedProfileData);
+    console.log("update profile with id: ", userID);
+
+    // get original data from database
+    const response0 = await fetch(`http://localhost:3001/api/users/${userID}`); // obtain specific user from database
+    const originalData = await response0.json(); // the user's original data
+
+    // update the document in the database
+    const response1 = await fetch(`http://localhost:3001/api/users/${userID}`, {
+      method: 'PUT',
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ // update new data and retain non-updated data
+        name: updatedProfileData.name,
+        email: originalData.email,
+        class: originalData.class,
+        batch: updatedProfileData.orgBatch,
+        department: updatedProfileData.department,
+        bio: updatedProfileData.bio
+      }),
+    })
+
+    const result = await response1.json();
+
+    console.log("Updated profile: ", result);
     setIsEditPopupVisible(false);
   };
 
@@ -70,7 +117,7 @@ const AdminProfile = () => {
             onSubmit={(e) => {
               e.preventDefault();
 
-              handleSaveChanges(updatedProfileData);
+              handleSaveChanges(updatedProfileData, userID);
             }}
           >
             <div className={styles.formfields}>

@@ -10,7 +10,10 @@ import {useState} from "react";
 
 const UserFiles = () => {
     //const [value, setValue] = useState();
-    let {search} = useParams();
+    // let IDparam = useParams(); // get userID parameters from URL
+    // const userID = IDparam.userID; // obtain value of userID from json format
+    let {IDparam, search} = useParams();
+    console.log(IDparam);
     const [allFiles, setAllFiles] = useState([]);
    
 

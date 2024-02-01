@@ -11,7 +11,8 @@ import { useParams } from "react-router-dom";
 
 const UserResources = () => {
     const [allFiles, setAllFiles] = useState([]);
-    let {id} = useParams();
+    
+    let {userID, id} = useParams(); // get userID parameters from URL
 
     useEffect(() => {
         getfiles();
@@ -30,7 +31,7 @@ const UserResources = () => {
             <div className={styles.partition}>
                 <p className={styles.heading}> 
                     Root 
-                    <Link to="/user/folderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/user/${userID}/cmscfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <FaAngleRight fontSize={30} />
                     CMSC 
                     </Link>
@@ -42,7 +43,7 @@ const UserResources = () => {
                     
                     
                     {allFiles.map((data) =>{
-                    if(data.course == id){
+                    if(data.course === id){
                          //file destination
                         let api= "http://localhost:3001/files/";
                         let fileName= data.file_name;

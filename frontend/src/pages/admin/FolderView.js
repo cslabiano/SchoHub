@@ -1,13 +1,16 @@
 import Navbar from "../../components/UserNavbar.js";
 import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
-import { Link } from "react-router-dom";
+//import { Link, useParams } from "react-router-dom";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import styles from "./FolderView.module.css";
 
 // folder view for CMSC courses
 export const CmscAdminFolderView = () => {
+    // let IDparam = useParams(); // get userID parameters from URL
+    // const userID = IDparam.userID; // obtain value of userID from json format
+
     return (
         <>
             <div><Navbar /></div>

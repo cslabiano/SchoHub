@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/UserNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { TbBellX } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
-import axios from 'axios';
+import { useParams } from "react-router-dom";
+//import axios from 'axios';
 
 const UserProfile = () => {
+  let IDparam = useParams(); // get userID parameters from URL
+  const userID = IDparam.userID; // obtain value of userID from json format
+
   const notifs = [
     {
       course: "Course 101",
@@ -43,11 +47,28 @@ const UserProfile = () => {
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
-    name: "Lorem Ipsum Dolor",
-    orgBatch: "Org Batch",
-    department: "Department",
-    bio: "Lorem Ipsum Dolor SIt Amet",
+    // name: "Lorem Ipsum Dolor",
+    // orgBatch: "Org Batch",
+    // department: "Department",
+    // bio: "Lorem Ipsum Dolor SIt Amet",
   });
+
+  // to display user information in profile page
+  const handleSetUserData = async() => {
+    console.log(userID);
+    const response = await fetch(`http://localhost:3001/api/users/${userID}`); // get specific user document from users collection
+    const user = await response.json();
+    setProfileData({ // set profile using retrieved user document's information
+      name: user.name,
+      orgBatch: user.batch,
+      department: user.department,
+      bio: user.bio,
+    })
+  }
+
+  useEffect(() => {
+    handleSetUserData(); // load the user data corresponding to the user ID
+  }, []);
 
   const [updatedProfileData, setUpdatedProfileData] = useState({
     name: profileData.name,
@@ -55,40 +76,76 @@ const UserProfile = () => {
     department: profileData.department,
     bio: profileData.bio,
   });
-  // update user profile
-  UserProfile.get('/',(req, res) => {
-    let username = req.query.username || '';
-    username = username.replace('');
-    if (!username || !password || users[username]) {
-      return res.sendStatus(400);
-    }
-  });
-  
-  UserProfile.post('/', (req, res, next) => {
-    const users = req.app.locals.users;
-    const { name, orgBatch, department, bio } = req.body;
-    // const _id = ObjectID(req.session.passport.user);
 
-    users.updateOne( {$set: {name, orgBatch, department, bio}});
+  // ==============================
+  // update user profile
+  // UserProfile.get('/',(req, res) => {
+  //   let username = req.query.username || '';
+  //   username = username.replace('');
+  //   if (!username || !password || users[username]) {
+  //     return res.sendStatus(400);
+  //   }
+  // });
+  
+  // UserProfile.post('/', (req, res, next) => {
+  //   const users = req.app.locals.users;
+  //   const { name, orgBatch, department, bio } = req.body;
+  //   // const _id = ObjectID(req.session.passport.user);
+
+  //   users.updateOne( {$set: {name, orgBatch, department, bio}});
     
 
-    res.redirect('/users')
-  });
+  //   res.redirect('/users')
+  // });
 
+  // const handleSaveChanges = async () => {
+  //   try {
+  //     await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
+  //     setProfileData(updatedProfileData);
+  //     setIsEditPopupVisible(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+
+ // ==============================
+
+  // clicking edit profile
   const handleEditProfile = () => {
     setIsEditPopupVisible(true);
   };
 
-  const handleSaveChanges = async () => {
-    try {
-      await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
-      setProfileData(updatedProfileData);
-      setIsEditPopupVisible(false);
-    } catch (error) {
-      console.error(error);
-    }
-
   
+  // form submission
+  const handleSaveChanges = async(updatedProfileData, userID) => {
+    setProfileData(updatedProfileData);
+    console.log("update profile with id: ", userID);
+
+    // get original data from database
+    const response0 = await fetch(`http://localhost:3001/api/users/${userID}`); // obtain specific user from database
+    const originalData = await response0.json(); // the user's original data
+
+    // update the document in the database
+    const response1 = await fetch(`http://localhost:3001/api/users/${userID}`, {
+      method: 'PUT',
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ // update new data and retain non-updated data
+        name: updatedProfileData.name,
+        email: originalData.email,
+        class: originalData.class,
+        batch: updatedProfileData.orgBatch,
+        department: updatedProfileData.department,
+        bio: updatedProfileData.bio
+      }),
+    })
+
+    const result = await response1.json();
+
+    console.log("Updated profile: ", result);
+    setIsEditPopupVisible(false);
+  };
+
   return (
     <>
       <Navbar />
@@ -130,7 +187,7 @@ const UserProfile = () => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handleSaveChanges();
+                  handleSaveChanges(updatedProfileData, userID);
                 }}
               >
                 <div className={styles.formfields}>
@@ -307,6 +364,6 @@ const UserProfile = () => {
     </>
   );
  };
-};
+
 
 export default UserProfile;

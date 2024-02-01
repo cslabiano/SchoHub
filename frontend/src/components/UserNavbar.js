@@ -5,9 +5,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UserNavbar = () => {
+  let IDparam = useParams(); // get userID parameters from URL
+  const userID = IDparam.userID; // obtain value of userID from json format
+  
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -43,7 +46,7 @@ const UserNavbar = () => {
               >
                 <div class="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/user/dashboard"
+                    to={`/user/${userID}/dashboard`}
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
@@ -52,7 +55,7 @@ const UserNavbar = () => {
                 </div>
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                   <Link
-                    to="/user/form"
+                    to={`/user/${userID}/form`}
                     className="nav-item nav-link"
                     id={styles.navLink}
                   >
@@ -89,7 +92,7 @@ const UserNavbar = () => {
                         if (input === "") {
                           alert("File not found!");
                         } else {
-                          navigate("/user/files/" + input);
+                          navigate("/user/" + userID + "/files/" + input);
                         }
                       }}
                     >
@@ -99,7 +102,7 @@ const UserNavbar = () => {
                 </div>
 
                 {/* profile */}
-                <Link to="/user/profile" style={{ textDecoration: "none" }}>
+                <Link to={`/user/${userID}/profile`} style={{ textDecoration: "none" }}>
                   <button
                     className="btn btn-outline-success btn-cart"
                     id={styles.btn}

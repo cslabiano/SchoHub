@@ -32,29 +32,29 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/admin/view" element={<View />} />
-        <Route path="/admin/profile" element={<AdminProfile />} />
-        <Route path="/user/form" element={<RequestForm />} />
-        <Route path="/user/form" element={<RequestForm />} />
-        <Route path="/user/dashboard" element={<UserDashboard />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/user/cmscfolderView" element={<CmscFolderView />} />
-        <Route path="/user/mathfolderView" element={<MathFolderView />} />
-        <Route path="/user/statfolderView" element={<StatFolderView />} />
-        <Route path="/user/othersfolderView" element={<OthersFolderView />} />
-        <Route path="/admin/cmscfolderView" element={<CmscAdminFolderView />} />
-        <Route path="/admin/mathfolderView" element={<MathAdminFolderView />} />
-        <Route path="/admin/statfolderView" element={<StatAdminFolderView />} />
+        <Route path="/" element={<Login />} /> 
+        <Route path="/admin/:userID/view" element={<View />} />
+        <Route path="/admin/:userID/profile" element={<AdminProfile />} />
+        <Route path="/user/:userID/form" element={<RequestForm />} />
+        <Route path="/user/:userID/form" element={<RequestForm />} />
+        <Route path="/user/:userID/dashboard" element={<UserDashboard />} />
+        <Route path="/admin/:userID/dashboard" element={<AdminDashboard />} />
+        <Route path="/user/:userID/cmscfolderView" element={<CmscFolderView />} />
+        <Route path="/user/:userID/mathfolderView" element={<MathFolderView />} />
+        <Route path="/user/:userID/statfolderView" element={<StatFolderView />} />
+        <Route path="/user/:userID/othersfolderView" element={<OthersFolderView />} />
+        <Route path="/admin/:userID/cmscfolderView" element={<CmscAdminFolderView />} />
+        <Route path="/admin/:userID/mathfolderView" element={<MathAdminFolderView />} />
+        <Route path="/admin/:userID/statfolderView" element={<StatAdminFolderView />} />
         <Route
-          path="/admin/othersfolderView"
+          path="/admin/:userID/othersfolderView"
           element={<OthersAdminFolderView />}
         />
-        <Route path="/user/resources/:id" element={<UserResources />} />
-        <Route path="/user/files" element={<UserFiles />} />
-        <Route path="/user/files/:search" element={<UserFiles />} />
-        <Route path="/user/profile" element={<UserProfile />} />
-        <Route path="/admin/manage" element={<ManageFiles />} />
+        <Route path="/user/:userID/resources/:id" element={<UserResources />} />
+        <Route path="/user/:userID/files" element={<UserFiles />} />
+        <Route path="/user/:userID/files/:search" element={<UserFiles />} />
+        <Route path="/user/:userID/profile" element={<UserProfile />} />
+        <Route path="/admin/:userID/manage" element={<ManageFiles />} />
       </Routes>
     </>
   );

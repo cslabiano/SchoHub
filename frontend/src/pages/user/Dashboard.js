@@ -1,13 +1,16 @@
 import Navbar from "../../components/UserNavbar.js";
 import Files from "../../components/Files.js";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styles from "./Dashboard.module.css";
 import AddFileModal from "./AddFile.js";
 
 const UserDashboard = () => {
+    let IDparam = useParams(); // get userID parameters from URL
+    const userID = IDparam.userID; // obtain value of userID from json format
+    
     const [files, setFiles] = useState([
         {
             name: "01_introduction_to_C_01",
@@ -32,7 +35,7 @@ const UserDashboard = () => {
                 
                 <div className={styles.container}>
                 {/* CMSC Course */}
-                <Link to="/user/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                <Link to={`/user/${userID}/cmscfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
                         <div className={styles.courseDetails}>
@@ -54,7 +57,7 @@ const UserDashboard = () => {
                     </div>
                     </Link>
                     {/* MATH Course */}
-                <Link to="/user/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                <Link to={`/user/${userID}/mathfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
@@ -76,7 +79,7 @@ const UserDashboard = () => {
                     </div>
                 </Link>
                     {/* STAT Course */}
-                <Link to="/user/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                <Link to={`/user/${userID}/statfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
@@ -98,7 +101,7 @@ const UserDashboard = () => {
                     </div>
                 </Link>
                     {/* OTHERS Course */}
-                <Link to="/user/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                <Link to={`/user/${userID}/othersfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className={styles.course}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 

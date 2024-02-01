@@ -1,8 +1,12 @@
 import Navbar from "../../components/AdminNavbar.js";
 import React, { useEffect, useState } from "react";
 import styles from "./ViewRequests.module.css";
+//import { useParams } from "react-router-dom";
 
 const ViewRequest = () => {
+  // let IDparam = useParams(); // get userID parameters from URL
+  // const userID = IDparam.userID; // obtain value of userID from json format
+
   // remove the sample data for integration
   const [requests, setRequests] = useState([]);
   

@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import styles from "./RequestForm.module.css";
 
 const RequestForm = () => {
+  // let IDparam = useParams(); // get userID parameters from URL
+  // const userID = IDparam.userID; // obtain value of userID from json format
+
   // use states
   const [Lastname, setLastname] = useState("");
   const [Firstname, setFirstname] = useState("");
