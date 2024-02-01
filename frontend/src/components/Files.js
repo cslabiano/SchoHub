@@ -14,7 +14,7 @@ class Files extends React.Component {
         {
             case "pdf":
                 return(<FaFilePdf color="#274C77" fontSize={25}/>);
-            case "docs":
+            case "docx":
                 return(<FaFileAlt color="#274C77" fontSize={25}/>);
             default:
                 return(<FaFile color="#274C77" fontSize={25}/>);
