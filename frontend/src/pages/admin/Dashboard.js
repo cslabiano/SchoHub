@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { FaEllipsisV } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styles from "./Dashboard.module.css";
+import AddFileModal from "./AddFile.js";
 
 const AdminDashboard = () => {
     let IDparam = useParams(); // get userID parameters from URL
@@ -25,9 +26,8 @@ const AdminDashboard = () => {
     return (
         <>
             <div><Navbar /></div>
-            <button id={styles.addFile}>
-                <FaPlus /> <p>Add File</p>
-            </button>
+            
+                <AddFileModal/>
 
             <div className={styles.partition}>
                 <h4 className={styles.heading}>
