@@ -38,7 +38,7 @@ const RequestForm = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.leftContainer}>
-          <p className={styles.leftTitle}>Request a Material</p>
+          <h4 className={styles.leftTitle}>Request a Material</h4>
           <div className={styles.formContainer}>
             <form class="row g-3" id="requestForm">
               <div class="col-md-5">
@@ -103,7 +103,7 @@ const RequestForm = () => {
         </div>
 
         <div className={styles.right}>
-          <p className={styles.rightTitle}>Guidelines in requesting a material</p>
+          <h4 className={styles.rightTitle}>Guidelines in requesting a material</h4>
           <div className={styles.textBox}>
             <p className={styles.textGuide}>
               The Scholastics Department holds the authority to both accept and reject material requests based on a thorough assessment of their alignment with our curriculum, educational standards, and the core values of the organization.
