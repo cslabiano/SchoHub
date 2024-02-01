@@ -119,66 +119,60 @@ const AdminProfile = () => {
             >
               <Modal.Body>
 
-                <div className={styles.formfields}>
+              <div className={styles.formfields}>
                   <label>Name:
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={updatedProfileData.name}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          name: e.target.value,
-                        })
-                      }
-                    ></input>
                   </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={updatedProfileData.name}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        name: e.target.value,
+                      })
+                    }
+                  ></input>
 
                   <br />
 
-                  <label>
-                    Org Batch:
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={updatedProfileData.orgBatch}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          orgBatch: e.target.value,
-                        })
-                      }
-                    />
-                  </label>
+                  <label>Org Batch:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={updatedProfileData.orgBatch}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        orgBatch: e.target.value,
+                      })
+                    }
+                  />
                   <br />
-                  <label>
-                    Department:
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={updatedProfileData.department}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          department: e.target.value,
-                        })
-                      }
-                    />
-                  </label>
+                  <label>Department:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={updatedProfileData.department}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        department: e.target.value,
+                      })
+                    }
+                  />
                   <br />
-                  <label>
-                    Bio:
-                    <textarea
-                      class="form-control"
-                      value={updatedProfileData.bio}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          bio: e.target.value,
-                        })
-                      }
-                    />
-                  </label>
+                  <label>Bio:</label>
+                  <textarea
+                    class="form-control"
+                    value={updatedProfileData.bio}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        bio: e.target.value,
+                      })
+                    }
+                  />
                 </div>
               </Modal.Body>
               <Modal.Footer>

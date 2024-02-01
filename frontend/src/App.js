@@ -5,12 +5,7 @@ import Login from "./pages/authorization/Login.js";
 
 // import user view pages
 import UserDashboard from "./pages/user/Dashboard.js";
-import {
-  CmscFolderView,
-  MathFolderView,
-  StatFolderView,
-  OthersFolderView,
-} from "./pages/user/FolderView.js";
+import UserFolderView from "./pages/user/FolderView.js";
 import RequestForm from "./pages/user/RequestForm.js";
 import UserProfile from "./pages/profile/UserProfile.js";
 import UserResources from "./pages/user/Resources.js";
@@ -39,10 +34,10 @@ function App() {
         <Route path="/user/:userID/form" element={<RequestForm />} />
         <Route path="/user/:userID/dashboard" element={<UserDashboard />} />
         <Route path="/admin/:userID/dashboard" element={<AdminDashboard />} />
-        <Route path="/user/:userID/cmscfolderView" element={<CmscFolderView />} />
-        <Route path="/user/:userID/mathfolderView" element={<MathFolderView />} />
+        <Route path="/user/:userID/folderView/:id" element={<UserFolderView />} />
+        {/* <Route path="/user/:userID/mathfolderView" element={<MathFolderView />} />
         <Route path="/user/:userID/statfolderView" element={<StatFolderView />} />
-        <Route path="/user/:userID/othersfolderView" element={<OthersFolderView />} />
+        <Route path="/user/:userID/othersfolderView" element={<OthersFolderView />} /> */}
         <Route path="/admin/:userID/cmscfolderView" element={<CmscAdminFolderView />} />
         <Route path="/admin/:userID/mathfolderView" element={<MathAdminFolderView />} />
         <Route path="/admin/:userID/statfolderView" element={<StatAdminFolderView />} />

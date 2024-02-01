@@ -61,7 +61,7 @@ const UserFiles = () => {
                              </a>
                          )
                      } else  { //document file type
-                         let result = name.concat(".docs");
+                         let result = name.concat(".docx");
                          return(
                              <a href = {result} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                              <Files title={data.file_name} type={"docs"} />

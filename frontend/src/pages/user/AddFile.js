@@ -7,9 +7,11 @@ import { FaPlus } from "react-icons/fa";
 const AddFileModal = ({closeModal}) => {
     const [showModal, setShowModal] = useState(false);
 
+
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
+   
         return (
             <>
                 {/* Add file button */}
@@ -27,6 +29,7 @@ const AddFileModal = ({closeModal}) => {
                     </button>
                     <div className={styles.content}>
                         <form id="addfileForm">
+                            <h3>Upload File:</h3>
                             <div class="row g-3">
                                 {/* First Name */}
                                 <div class="col-md-6">

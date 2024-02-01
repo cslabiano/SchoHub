@@ -39,7 +39,7 @@ const UserProfile = () => {
   });
 
   // to display user information in profile page
-  const handleSetUserData = async() => {
+  const handleSetUserData = async () => {
     console.log(userID);
     const response = await fetch(`http://localhost:3001/api/users/${userID}`); // get specific user document from users collection
     const user = await response.json();
@@ -64,7 +64,7 @@ const UserProfile = () => {
   });
   
   // form submission
-  const handleSaveChanges = async(updatedProfileData, userID) => {
+  const handleSaveChanges = async (updatedProfileData, userID) => {
     setProfileData(updatedProfileData);
     //console.log("update profile with id: ", userID);
 
@@ -76,7 +76,7 @@ const UserProfile = () => {
     const response1 = await fetch(`http://localhost:3001/api/users/${userID}`, {
       method: 'PUT',
       headers: {
-      "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ // update new data and retain non-updated data
         name: updatedProfileData.name,
@@ -157,71 +157,65 @@ const UserProfile = () => {
 
                 <div className={styles.formfields}>
                   <label>Name:
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={updatedProfileData.name}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          name: e.target.value,
-                        })
-                      }
-                    ></input>
                   </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={updatedProfileData.name}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        name: e.target.value,
+                      })
+                    }
+                  ></input>
 
                   <br />
 
-                  <label>
-                    Org Batch:
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={updatedProfileData.orgBatch}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          orgBatch: e.target.value,
-                        })
-                      }
-                    />
-                  </label>
+                  <label>Org Batch:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={updatedProfileData.orgBatch}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        orgBatch: e.target.value,
+                      })
+                    }
+                  />
                   <br />
-                  <label>
-                    Department:
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={updatedProfileData.department}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          department: e.target.value,
-                        })
-                      }
-                    />
-                  </label>
+                  <label>Department:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={updatedProfileData.department}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        department: e.target.value,
+                      })
+                    }
+                  />
                   <br />
-                  <label>
-                    Bio:
-                    <textarea
-                      class="form-control"
-                      value={updatedProfileData.bio}
-                      onChange={(e) =>
-                        setUpdatedProfileData({
-                          ...updatedProfileData,
-                          bio: e.target.value,
-                        })
-                      }
-                    />
-                  </label>
+                  <label>Bio:</label>
+                  <textarea
+                    class="form-control"
+                    value={updatedProfileData.bio}
+                    onChange={(e) =>
+                      setUpdatedProfileData({
+                        ...updatedProfileData,
+                        bio: e.target.value,
+                      })
+                    }
+                  />
                 </div>
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" type="submit" style={{ background: "#274c77" }} 
+                <Button variant="primary" type="submit" style={{ background: "#274c77" }}
                   onClick={() => {
                     handleSaveChanges(updatedProfileData, userID);
                     handleClose();
@@ -338,7 +332,7 @@ const UserProfile = () => {
       </div>
     </>
   );
- };
+};
 
 
 export default UserProfile;

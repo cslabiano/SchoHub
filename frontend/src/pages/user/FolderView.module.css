@@ -9,7 +9,9 @@ body {
     flex-direction: column;  
 }
 
-.heading {
+.directory {
+    display: flex;
+    flex-direction: row;
     padding-top: 2%;
     color: #2b5b87;
 }

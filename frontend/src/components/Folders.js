@@ -50,7 +50,7 @@ class Files extends React.Component {
 
         return (
             <>
-                <div className={styles.folder}>
+                <div onClick={this.props.onClick} className={styles.folder}>
                     <div className={styles.folderInfo}><FaFolder color="#274C77" fontSize={25}/>{this.props.title}</div>
                     {/* Button for Dropdown of Options */}
                     <button onClick={this.handleEllipsisClick} className={styles.ellipsis}><FaEllipsisV className={styles.more}/></button>

@@ -1,0 +1,129 @@
+{
+    "root": [
+        {
+            "name": "CMSC",
+            "lastUpdate": "Dec 2023",
+            "contributor": "Kuya Monde",
+            "folders": [
+                {
+                    "name": "CMSC 21",
+                    "folders": [ ],
+                    "files": [
+                        {
+                            "name": "01_introduction_to_C_01",
+                            "type": "pdf"
+                        },
+                        {
+                            "name": "02_introduction_to_C_02",
+                            "type": "pdf"
+                        },
+                        {
+                            "name": "Functions",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "CMSC 22",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "CMSC 123",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "CMSC 130",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "CMSC 150",
+                    "folders": [ ],
+                    "files": [ ]
+                }
+            ],
+            "files": [
+                {
+                    "name": "9",
+                    "type": "pdf"
+                }
+            ]
+        },
+        {
+            "name": "MATH",
+            "lastUpdate": "Jan 2023",
+            "contributor": "Ate Soph",
+            "folders": [
+                {
+                    "name": "MATH 10",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "MATH 27",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "MATH 28",
+                    "folders": [ ],
+                    "files": [ ]
+                }
+            ],
+            "files": [ ]
+        },
+        {
+            "name": "STAT",
+            "lastUpdate": "Jan 2023",
+            "contributor": "Kuya Uzzie",
+            "folders": [
+                {
+                    "name": "STAT 101",
+                    "folders": [ ],
+                    "files": [ ]
+                }
+            ],
+            "files": [ ]
+        },
+        {
+            "name": "OTHERS",
+            "lastUpdate": "Jan 2023",
+            "contributor": "Markus",
+            "folders": [
+                {
+                    "name": "ARTS 1",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "ETHICS 1",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "HIST 1",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "KAS 1",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "PI 10",
+                    "folders": [ ],
+                    "files": [ ]
+                },
+                {
+                    "name": "STS 1",
+                    "folders": [ ],
+                    "files": [ ]
+                }
+            ],
+            "files": [ ]
+        }
+    ]
+}
