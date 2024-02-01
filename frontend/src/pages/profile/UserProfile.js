@@ -8,20 +8,36 @@ import axios from 'axios';
 
 const UserProfile = () => {
   const notifs = [
-    // {
-    //   course: "Course 101",
-    //   file: "Course Guide",
-    //   purpose:
-    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    //   status: "Accepted",
-    // },
-    // {
-    //   course: "Course 101",
-    //   file: "Course Guide",
-    //   purpose:
-    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //   status: "Rejected",
-    // },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      status: "Accepted",
+    },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      status: "Rejected",
+    },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      status: "Accepted",
+    },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      status: "Rejected",
+    },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      status: "Accepted",
+    },
+    {
+      course: "Course 101",
+      file: "Course Guide",
+      status: "Rejected",
+    },
   ];
 
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
@@ -94,7 +110,7 @@ const UserProfile = () => {
         >
           <div
             className={styles.title}
-            style={{ paddingTop: "5%", paddingLeft: "12%" }}
+            style={{ paddingTop: "3.30%", paddingLeft: "6%" }}
           >
             <h4 className={styles.h4}>Profile</h4>
           </div>
@@ -196,23 +212,24 @@ const UserProfile = () => {
             </div>
           )}
         </div>
-        <div className={styles.right}>
+        <div
+          className={styles.right}
+          style={{ overflowY: "auto", height: "90vh" }}
+        >
           <div
             className={styles.title}
-            style={{ paddingTop: "3.30%", paddingLeft: "6%" }}
+            style={{ paddingTop: "8%", paddingLeft: "6%" }}
           >
-            <h4 className={styles.h4}>Notification</h4>
+            <h4 className={styles.h4}>History</h4>
           </div>
           {/* div for containing the requests dynamically */}
           <div className="container" style={{ marginTop: "3%" }}>
             <div className="row g-4">
               {notifs.length === 0 ? (
                 <>
-                  <div className="text-center" style={{ marginTop: "15%" }}>
+                  <div className="text-center" style={{ marginTop: "35%" }}>
                     <TbBellX fontSize={200} color="#8B8C89" />
-                    <h4 style={{ color: "#8B8C89" }}>
-                      Your notification is empty.
-                    </h4>
+                    <h4 style={{ color: "#8B8C89" }}>Your history is empty.</h4>
                   </div>
                 </>
               ) : (
@@ -230,7 +247,9 @@ const UserProfile = () => {
                       style={{
                         borderColor: "#274C77",
                         color: "#274C77",
-                        marginRight: "2%",
+                        marginRight: "3.5%",
+                        fontSize: "10px",
+                        marginBottom: 5,
                       }}
                     >
                       CLEAR ALL
@@ -245,12 +264,14 @@ const UserProfile = () => {
                           style={{
                             display: "flex",
                             justifyContent: "space-between",
+                            marginBottom: "22px",
+                            marginTop: 0,
                           }}
                         >
                           <div
                             style={{
                               paddingRight: "20px",
-                              marginLeft: "8%",
+                              marginLeft: "12%",
                               width: "75%",
                             }}
                           >
@@ -263,14 +284,10 @@ const UserProfile = () => {
                             </span>
                             <br />
                             <span>
-                              <strong>Purpose:</strong> {notif.purpose}
-                            </span>
-                            <br />
-                            <span>
                               <strong>Status:</strong> {notif.status}
                             </span>
                           </div>
-                          <div style={{ marginRight: "6%" }}>
+                          <div style={{ marginRight: "8%" }}>
                             <button
                               className="btn btn-light"
                               // onClick={() => handleDelete(index)}
@@ -287,7 +304,7 @@ const UserProfile = () => {
                         {index === notifs.length - 1 ? (
                           <></>
                         ) : (
-                          <hr style={{ marginBottom: 0 }} />
+                          <hr style={{ marginBottom: "22px", marginTop: 0 }} />
                         )}
                       </>
                     );
