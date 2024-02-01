@@ -19,6 +19,13 @@ class Files extends React.Component {
                 return(<FaFile color="#274C77" fontSize={25}/>);
         }
     }
+    handleEllipsisClick = (e) => {
+        // Prevent the default behavior of the event
+        e.preventDefault();
+        
+        // Stop the event propagation to prevent it from reaching the parent link
+        e.stopPropagation();
+    };
     render() {
         return (
             <>
@@ -30,7 +37,7 @@ class Files extends React.Component {
                             {this.fileType()}
                             {this.props.title}
                         </div>
-                        <button className={styles.fileMore}>
+                        <button className={styles.fileMore} onClick={this.handleEllipsisClick}>
                             <FaEllipsisV />
                         </button>
                     </div>
