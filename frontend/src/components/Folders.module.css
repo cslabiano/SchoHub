@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .folderInfo {
@@ -21,15 +22,52 @@
     margin-right: 20px;
 }
 
-.folder button {
+.ellipsis {
     height: 50%;
     margin-right: 15px;
     background-color: transparent;
     border: none;
     border-radius: 50%;
+    left: 84%;
+    position: absolute;
 }
 
 
 .folder button:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.dropdown {
+    position: absolute;
+}
+
+/* .dropdown {
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: 40px;
+    left: 250px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdownContent {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+
+    
+}
+
+.icon {
+    margin-right: 10px;
+} */
