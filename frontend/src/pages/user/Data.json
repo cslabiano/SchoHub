@@ -7,153 +7,46 @@
             "folders": [
                 {
                     "name": "CMSC 21",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [
-                                {
-                                    "name": "01_introduction_to_C_01",
-                                    "type": "pdf"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [
-                                {
-                                    "name": "02_introduction_to_C_02",
-                                    "type": "pdf"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [
-                                {
-                                    "name": "Functions",
-                                    "type": "pdf"
-                                }
-                            ]
-                        }
-                    ],
+                    "folders": [ ],
                     "files": [
                         {
-                            "name": "CMSC 21 Course Guide",
+                            "name": "01_introduction_to_C_01",
+                            "type": "pdf"
+                        },
+                        {
+                            "name": "02_introduction_to_C_02",
+                            "type": "pdf"
+                        },
+                        {
+                            "name": "Functions",
                             "type": "pdf"
                         }
                     ]
                 },
                 {
                     "name": "CMSC 22",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [ ]
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "CMSC 22 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "CMSC 123",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [ ]
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "CMSC 123 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "CMSC 130",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [ ]
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "CMSC 130 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "CMSC 150",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [ ]
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "CMSC 150 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 }
             ],
             "files": [
                 {
-                    "name": "BSCS Curriculum 2018",
+                    "name": "9",
                     "type": "pdf"
                 }
             ]
@@ -165,89 +58,21 @@
             "folders": [
                 {
                     "name": "MATH 10",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "MATH 10 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "MATH 27",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [ ]
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "MATH 27 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "MATH 28",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": [ ]
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "MATH 28 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 }
             ],
-            "files": [
-                {
-                    "name": "BSAM 2018",
-                    "type": "pdf"
-                }
-            ]
+            "files": [ ]
         },
         {
             "name": "STAT",
@@ -256,37 +81,11 @@
             "folders": [
                 {
                     "name": "STAT 101",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "STAT 101 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 }
             ],
-            "files": [
-                {
-                    "name": "BSSTAT 2018",
-                    "type": "pdf"
-                }
-            ]
+            "files": [ ]
         },
         {
             "name": "OTHERS",
@@ -295,162 +94,36 @@
             "folders": [
                 {
                     "name": "ARTS 1",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "ARTS 1 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "ETHICS 1",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "ETHICS 1 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "HIST 1",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "HIST 1 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "KAS 1",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "KAS 1 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "PI 10",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "PI 10 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 },
                 {
                     "name": "STS 1",
-                    "folders": [
-                        {
-                            "name": "W1",
-                            "folders": [ ],
-                            "files": [ ]
-                        },
-                        {
-                            "name": "W2",
-                            "folders": [ ],
-                            "files": []
-                        },
-                        {
-                            "name": "W3",
-                            "folders": [ ],
-                            "files": []
-                        }
-                    ],
-                    "files": [
-                        {
-                            "name": "STS 1 Course Guide",
-                            "type": "pdf"
-                        }
-                    ]
+                    "folders": [ ],
+                    "files": [ ]
                 }
             ],
-            "files": []
+            "files": [ ]
         }
     ]
 }

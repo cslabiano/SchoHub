@@ -3,6 +3,7 @@ import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
 import { Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import { FaAngleRight } from "react-icons/fa";
 import localData from "./Data.json";
 import styles from "./FolderView.module.css";
@@ -14,6 +15,7 @@ const UserFolderView = () => {
 
     const [data, setData] = useState(localData); // File and Folders Data
     
+    // Read data object
     const readData = (data) => {
         const name = data.name;
         const folders = data.folders;
@@ -21,6 +23,7 @@ const UserFolderView = () => {
         return({name, folders, files});
     };
 
+    // Get Local Data
     const getData = () => {
         switch(IDparam.id){
             case "CMSC":
@@ -40,7 +43,7 @@ const UserFolderView = () => {
     );
         
     // Prev Data
-    const [prevData, setPrevData] = useState();
+    // const [prevData, setPrevData] = useState();
 
     // Current Directories
     const [directories, setDirectories] = useState(
@@ -61,45 +64,39 @@ const UserFolderView = () => {
         if (index+1 != directories.data.length) directories.data.splice(index+1, directories.data.length-index);
     };
 
-    // // Handle forward and back button in browser
-    // useEffect(() => {
-    //     // Check if the back button was pressed
-    //     const handleBackButton = (event) => {
-    //       if (event && event.type === 'popstate') {
-    //         const prev = directories.data.pop();
-    //         console.log(prev);
-    //         setPrevData(getData(prev));
+    // Get directory of navigation
+    const getDirectoryLink = (index) => {
+        let currentDirectory = "";
+        let i;
+        for(i = 0; i < index; i++)
+            currentDirectory += directories.data[i].name.replace(" ", "_") + "-";
+        currentDirectory += directories.data[i].name.replace(" ", "_");
+        return(currentDirectory);
+    };
 
-    //         setCurrentData(getData(directories.data[directories.data.length-1]));
-    //         console.log(prevData);
-    //         console.log(currentData);
-    //         console.log(directories);
-    //       }
-    //     };
-    
-    //     // Check if the forward button was pressed
-    //     const handleForwardButton = (event) => {
-    //       if (event && event.type === 'pushstate') {
-    //         setCurrentData(getData(prevData));
-    //         directories.data.push(getData(prevData));
-    //         console.log(prevData);
-    //         console.log(currentData);
-    //         console.log(directories);
-    //       }
-    //     };
-    
-    //     // Add event listeners for the 'popstate' and 'pushstate' events
-    //     window.addEventListener('popstate', handleBackButton);
-    //     window.addEventListener('pushstate', handleForwardButton);
-    
-    //     // Clean up function to remove the event listeners when the component unmounts
-    //     return () => {
-    //       window.removeEventListener('popstate', handleBackButton);
-    //       window.removeEventListener('pushstate', handleForwardButton);
-    //     };
-    //   }, []);
+    // Get current directory of folder/file
+    const getDataLink = (targetDirectory) => {
+        let currentDirectory = "";
+        directories.data.forEach((directory) => {
+            currentDirectory += (directory.name.replace(" ", "_") + "-");
+        })
+        currentDirectory += targetDirectory.replace(" ", "_");
+        return(currentDirectory);
+    };
+
+    const [allFiles, setAllFiles] = useState([]);
+   
+
+     //get files from the api   
+     const getfiles = async () => {
+        const file = await axios.get("http://localhost:3001/get-files");
+        setAllFiles(file.data.data);
+    } 
 
 
+    useEffect(() => {
+        getfiles();
+    }, []);
 
     return (
         <>
@@ -116,7 +113,7 @@ const UserFolderView = () => {
                             <>
                                 <FaAngleRight fontSize={30} />
 
-                                <Link to={`/user/${userID}/folderView/` + directory.name} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                <Link to={`/user/${userID}/folderView/` + getDirectoryLink(index)} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                                     <h4 onClick={() => updateDirectory(index)}>{directory.name} </h4>
                                 </Link>
                             </>
@@ -132,7 +129,7 @@ const UserFolderView = () => {
                     {currentData.folders.map((folder, index) => {
                         return (
                             <>
-                                <Link to={`/user/${userID}/folderView/` + folder.name} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                <Link to={`/user/${userID}/folderView/` + getDataLink(folder.name)} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                                     <Folders onClick={() => goToFolder(index)} title={folder.name}/>
                                 </Link>
                             </>
@@ -146,13 +143,25 @@ const UserFolderView = () => {
                 </p>
                 <div className={styles.container}>
                     {currentData.files.map((file, index) => {
-                        return (
-                            <>
-                                <Link to={`/user/${userID}/folderView/` + file.name} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                                    <Files title={file.name}/>
-                                </Link>
-                            </>
-                        )
+                        let api= "http://localhost:3001/files/";
+                        let fileName= file.name;
+                        let name = api.concat(fileName);
+   
+                        if(file.type === "pdf"){  //pdf file type
+                            let result = name.concat(".pdf");
+                            return(
+                                <a href = {result} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                <Files title={fileName} type={"docs"} />
+                                </a>
+                            )
+                        } else  { //document file type
+                            let result = name.concat(".docs");
+                            return(
+                                <a href = {result} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                <Files title={fileName} type={"docs"} />
+                                </a>
+                            )
+                        }
                     })}
                 </div>
             </div>
