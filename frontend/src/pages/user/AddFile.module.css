@@ -2,11 +2,12 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 50%;
-    height: 55%;
-    max-height: 55%;
+    width: 40%;
+    height: 65%;
+    max-height: 65%;
     transform: translate(-50%, -50%);
     background-color:#274C77;
+    opacity: 0.9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     display: flex;
@@ -59,8 +60,12 @@
 
 }
 
-.form-label {
+.form-label, h3 {
     color: white !important;
+}
+
+h3 {
+    padding-bottom: 2%;
 }
 
 .button {
