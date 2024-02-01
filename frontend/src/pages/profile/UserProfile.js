@@ -5,6 +5,8 @@ import { FaUserCircle } from "react-icons/fa";
 import { TbBellX } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 import axios from 'axios';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 const UserProfile = () => {
   const notifs = [
@@ -40,6 +42,11 @@ const UserProfile = () => {
     },
   ];
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
@@ -61,45 +68,51 @@ const UserProfile = () => {
     setIsEditPopupVisible(true);
   };
 
-  const handleSaveChanges = async () => {
-    try {
+  const handleSaveChanges = () => {
+    setProfileData(updatedProfileData);
+    setIsEditPopupVisible(false);
+  }
 
-      UserProfile.get('/',(req, res,next) => {
-      const users = req.app.locals.users;
-      const username = req.params.username;
+  // const handleSaveChanges = async () => {
+  //   try {
 
-      users.findOne({ username }, (err, results) => {
-        if (err || !results) {
-          res.render('profile', {message: {error: ['User not found']}});
-        }
-      
-        res.render('profile', { ...results, username});
-      });
-    });
-  
-    UserProfile.post('/', (req, res, next) => {
-      const users = req.app.locals.users;
-      const { name, orgBatch, department, bio } = req.body;
-      // const _id = ObjectID(req.session.passport.user);
+  //     UserProfile.get('/', (req, res, next) => {
+  //       const users = req.app.locals.users;
+  //       const username = req.params.username;
 
-      users.updateOne({_id }, {$set: {name, orgBatch, department, bio}}, 
-        (err) => {
-          if (err) {
-            throw err;
-          }
+  //       users.findOne({ username }, (err, results) => {
+  //         if (err || !results) {
+  //           res.render('profile', { message: { error: ['User not found'] } });
+  //         }
 
-          res.redirect('/users')
-        });
-      });
-      
-      // await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
-      setProfileData(updatedProfileData);
-      setIsEditPopupVisible(false);
-    } catch (error) {
-      console.error(error);
-    }
+  //         res.render('profile', { ...results, username });
+  //       });
+  //     });
 
-  
+  //     UserProfile.post('/', (req, res, next) => {
+  //       const users = req.app.locals.users;
+  //       const { name, orgBatch, department, bio } = req.body;
+  //       // const _id = ObjectID(req.session.passport.user);
+
+  //       users.updateOne({ _id }, { $set: { name, orgBatch, department, bio } },
+  //         (err) => {
+  //           if (err) {
+  //             throw err;
+  //           }
+
+  //           res.redirect('/users')
+  //         });
+  //     });
+
+  //     // await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
+  //     setProfileData(updatedProfileData);
+  //     setIsEditPopupVisible(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+
+
+
   return (
     <>
       <Navbar />
@@ -125,30 +138,29 @@ const UserProfile = () => {
             <button
               className={styles.editButton}
               id={styles.btn}
-              onClick={handleEditProfile}
+              onClick={handleShow}
             >
               Edit Profile
             </button>
           </div>
 
-          {/* edit profile popup */}
-          {isEditPopupVisible && (
-            <div className={styles.editPopup}>
-              <div className={styles.title}>
-                <h4 class={styles.h4}>Edit Profile</h4>
-              </div>
-              {/* edit profile form */}
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSaveChanges();
-                }}
-              >
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title className={styles.h4}>Edit Profile</Modal.Title>
+            </Modal.Header>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSaveChanges();
+              }}
+            >
+              <Modal.Body>
+
                 <div className={styles.formfields}>
-                  <label>
-                    Name:
+                  <label>Name:
                     <input
                       type="text"
+                      class="form-control"
                       value={updatedProfileData.name}
                       onChange={(e) =>
                         setUpdatedProfileData({
@@ -156,13 +168,16 @@ const UserProfile = () => {
                           name: e.target.value,
                         })
                       }
-                    />
+                    ></input>
                   </label>
+
                   <br />
+
                   <label>
                     Org Batch:
                     <input
                       type="text"
+                      class="form-control"
                       value={updatedProfileData.orgBatch}
                       onChange={(e) =>
                         setUpdatedProfileData({
@@ -177,6 +192,7 @@ const UserProfile = () => {
                     Department:
                     <input
                       type="text"
+                      class="form-control"
                       value={updatedProfileData.department}
                       onChange={(e) =>
                         setUpdatedProfileData({
@@ -190,6 +206,7 @@ const UserProfile = () => {
                   <label>
                     Bio:
                     <textarea
+                      class="form-control"
                       value={updatedProfileData.bio}
                       onChange={(e) =>
                         setUpdatedProfileData({
@@ -199,18 +216,19 @@ const UserProfile = () => {
                       }
                     />
                   </label>
-                  <br />
-                  <button
-                    className={styles.editButton}
-                    id={styles.btn}
-                    type="submit"
-                  >
-                    Save Changes
-                  </button>
                 </div>
-              </form>
-            </div>
-          )}
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" type="submit" style={{ background: "#274c77" }} onClick={handleClose}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+            </form>
+
+          </Modal>
         </div>
         <div
           className={styles.right}
@@ -317,7 +335,6 @@ const UserProfile = () => {
       </div>
     </>
   );
- };
 };
 
 export default UserProfile;
