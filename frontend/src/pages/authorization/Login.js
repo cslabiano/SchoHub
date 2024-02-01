@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import styles from "./AuthorizationStyle.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Spline from '@splinetool/react-spline';
 
 const LogIn = () => {
   //added use states
@@ -65,7 +66,9 @@ const LogIn = () => {
     <>
       <div className={styles.container}>
         {/* Left Side */}
-        <div className={styles.left}></div>
+        <div className={styles.left}>
+        <Spline style={{width:"100%"}} scene="https://prod.spline.design/DUkaPT-0Dt5vm1So/scene.splinecode" />
+        </div>
         <div className={styles.right}>
           <div className={styles.formContainer}>
             <form onSubmit={handleSubmit} className={styles.form}>

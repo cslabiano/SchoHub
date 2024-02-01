@@ -14,12 +14,12 @@ html {
   display: flex;
   align-content: flex-start;
   background-color: #12131a;
-  width: 40%;
+  width: 60%;
 }
 
 .right {
   display: flex;
-  width: 60%;
+  width: 40%;
   justify-content: center;
   align-items: center;
 }
