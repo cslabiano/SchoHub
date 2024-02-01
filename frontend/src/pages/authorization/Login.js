@@ -75,8 +75,8 @@ const LogIn = () => {
               <h1
                 style={{
                   textAlign: "left",
-                  color: "#474747",
-                  fontSize: "38px",
+                  color: "#274c77",
+                  fontSize: "50px",
                   marginBottom: "30px",
                 }}
               >
@@ -89,7 +89,7 @@ const LogIn = () => {
                   marginBottom: "5px",
                   fontWeight: "bold",
                   fontSize: "21px",
-                  color: "#474747",
+                  color: "#274c77",
                 }}
               >
                 E-mail
@@ -112,7 +112,7 @@ const LogIn = () => {
                   fontWeight: "bold",
                   fontSize: "21px",
                   marginBottom: "5px",
-                  color: "#474747",
+                  color: "#274c77",
                 }}
               >
                 Password
@@ -143,7 +143,7 @@ const LogIn = () => {
                   marginTop: "25px",
                 }}
               >
-                SIGN IN
+                Sign In
               </button>
             </form>
             <div className={styles.lineContainer}>

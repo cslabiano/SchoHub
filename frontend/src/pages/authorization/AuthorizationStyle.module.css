@@ -2,12 +2,12 @@ body,
 html {
   height: 100%;
   margin: 0;
-  font-family: "Lato", sans-serif;
 }
 
 .container {
   display: flex;
   height: 100vh;
+  font-family:'Inter';
 }
 
 .left {
@@ -68,4 +68,9 @@ form {
   margin: 0 2px;
   color: #929292;
   font-weight: bold;
+}
+
+::placeholder {
+  color: #274c77;
+  opacity: 0.8;
 }
