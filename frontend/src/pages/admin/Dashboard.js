@@ -35,14 +35,9 @@ const AdminDashboard = () => {
                 </h4>
                 
                 <div className={styles.container}>
-                {/* CMSC Course */}
-<<<<<<< HEAD
-                <Link to={`/admin/${userID}/cmscfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-=======
-                
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
+                    {/* CMSC Course */}
                     <div className={styles.course}>
-                    <Link to="/admin/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/admin/${userID}/cmscfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
                         <div className={styles.courseDetails}>
                         
@@ -63,13 +58,9 @@ const AdminDashboard = () => {
                     </div>
                     
                     {/* MATH Course */}
-<<<<<<< HEAD
-                <Link to={`/admin/${userID}/mathfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-=======
                 
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
                     <div className={styles.course}>
-                    <Link to="/admin/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/admin/${userID}/mathfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
                         <div className={styles.courseDetails}>
@@ -90,13 +81,8 @@ const AdminDashboard = () => {
                     </div>
                     
                     {/* STAT Course */}
-<<<<<<< HEAD
-                <Link to={`/admin/${userID}/statfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-=======
-                
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
                     <div className={styles.course}>
-                    <Link to="/admin/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/admin/${userID}/statfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
                         <div className={styles.courseDetails}>
@@ -117,13 +103,8 @@ const AdminDashboard = () => {
                     </div>
                 
                     {/* OTHERS Course */}
-<<<<<<< HEAD
-                <Link to={`/admin/${userID}/othersfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-=======
-                
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
                     <div className={styles.course}>
-                    <Link to="/admin/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/admin/${userID}/othersfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 
                         <div className={styles.courseDetails}>

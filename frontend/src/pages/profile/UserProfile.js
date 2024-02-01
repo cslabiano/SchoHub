@@ -4,14 +4,10 @@ import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { TbBellX } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
-<<<<<<< HEAD
 import { useParams } from "react-router-dom";
 //import axios from 'axios';
-=======
-import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
 
 const UserProfile = () => {
   let IDparam = useParams(); // get userID parameters from URL
@@ -55,7 +51,7 @@ const UserProfile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
+  //const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
     // name: "Lorem Ipsum Dolor",
@@ -88,7 +84,6 @@ const UserProfile = () => {
     bio: profileData.bio,
   });
 
-<<<<<<< HEAD
   // ==============================
   // update user profile
   // UserProfile.get('/',(req, res) => {
@@ -121,15 +116,11 @@ const UserProfile = () => {
 
  // ==============================
 
-  // clicking edit profile
-=======
-  // update user profile
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
-  const handleEditProfile = () => {
-    setIsEditPopupVisible(true);
-  };
+  // // clicking edit profile
+  // const handleEditProfile = () => {
+  //   setIsEditPopupVisible(true);
+  // };
 
-<<<<<<< HEAD
   
   // form submission
   const handleSaveChanges = async(updatedProfileData, userID) => {
@@ -159,54 +150,8 @@ const UserProfile = () => {
     const result = await response1.json();
 
     console.log("Updated profile: ", result);
-    setIsEditPopupVisible(false);
+    // setIsEditPopupVisible(false);
   };
-=======
-  const handleSaveChanges = () => {
-    setProfileData(updatedProfileData);
-    setIsEditPopupVisible(false);
-  }
-
-  // const handleSaveChanges = async () => {
-  //   try {
-
-  //     UserProfile.get('/', (req, res, next) => {
-  //       const users = req.app.locals.users;
-  //       const username = req.params.username;
-
-  //       users.findOne({ username }, (err, results) => {
-  //         if (err || !results) {
-  //           res.render('profile', { message: { error: ['User not found'] } });
-  //         }
-
-  //         res.render('profile', { ...results, username });
-  //       });
-  //     });
-
-  //     UserProfile.post('/', (req, res, next) => {
-  //       const users = req.app.locals.users;
-  //       const { name, orgBatch, department, bio } = req.body;
-  //       // const _id = ObjectID(req.session.passport.user);
-
-  //       users.updateOne({ _id }, { $set: { name, orgBatch, department, bio } },
-  //         (err) => {
-  //           if (err) {
-  //             throw err;
-  //           }
-
-  //           res.redirect('/users')
-  //         });
-  //     });
-
-  //     // await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
-  //     setProfileData(updatedProfileData);
-  //     setIsEditPopupVisible(false);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-
-
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
 
   return (
     <>
@@ -239,21 +184,6 @@ const UserProfile = () => {
             </button>
           </div>
 
-<<<<<<< HEAD
-          {/* edit profile popup */}
-          {isEditPopupVisible && (
-            <div className={styles.editPopup}>
-              <div className={styles.title}>
-                <h4 class={styles.h4}>Edit Profile</h4>
-              </div>
-              {/* edit profile form */}
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSaveChanges(updatedProfileData, userID);
-                }}
-              >
-=======
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title className={styles.h4}>Edit Profile</Modal.Title>
@@ -261,12 +191,11 @@ const UserProfile = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSaveChanges();
+                handleSaveChanges(updatedProfileData, userID);
               }}
             >
               <Modal.Body>
 
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
                 <div className={styles.formfields}>
                   <label>Name:
                     <input
@@ -333,7 +262,11 @@ const UserProfile = () => {
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" type="submit" style={{ background: "#274c77" }} onClick={handleClose}>
+                <Button variant="primary" type="submit" style={{ background: "#274c77" }} 
+                  onClick={() => {
+                    handleSaveChanges(updatedProfileData, userID);
+                    handleClose();
+                  }}>
                   Save Changes
                 </Button>
               </Modal.Footer>
@@ -446,11 +379,7 @@ const UserProfile = () => {
       </div>
     </>
   );
-<<<<<<< HEAD
  };
 
-=======
-};
->>>>>>> 054b8c946586378acecbbb1cc7103b2476513cce
 
 export default UserProfile;
