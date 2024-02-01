@@ -2,73 +2,142 @@ import Navbar from "../../components/UserNavbar.js";
 import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
 import { Link, useParams } from "react-router-dom";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaAngleRight } from "react-icons/fa";
+import localData from "./Data.json";
 import styles from "./FolderView.module.css";
 
 // folder view for CMSC courses
-export const CmscFolderView = () => {
+const UserFolderView = () => {
     let IDparam = useParams(); // get userID parameters from URL
     const userID = IDparam.userID; // obtain value of userID from json format
+
+    const [data, setData] = useState(localData); // File and Folders Data
+    
+    const readData = (data) => {
+        const name = data.name;
+        const folders = data.folders;
+        const files = data.files;
+        return({name, folders, files});
+    };
+
+    const getData = () => {
+        switch(IDparam.id){
+            case "CMSC":
+                return(readData(data.root[0]));
+            case "MATH":
+                return(readData(data.root[1]));
+            case "STAT":
+                return(readData(data.root[2]));
+            case "OTHERS":
+                return(readData(data.root[3]));
+        }
+    }
+
+    // Current Data
+    const [currentData, setCurrentData] = useState(
+        getData()
+    );
+        
+    // Prev Data
+    const [prevData, setPrevData] = useState();
+
+    // Current Directories
+    const [directories, setDirectories] = useState(
+        {
+            data : [currentData]
+        }
+    );
+
+    // Change value of currentData to chosen folder data
+    const goToFolder = (index) => {
+        setCurrentData(readData(currentData.folders[index]));
+        directories.data.push(readData(currentData.folders[index])); // add new folder data to directories
+    };
+
+    // Change value of currentData to chosen directory
+    const updateDirectory = (index) => {
+        setCurrentData(directories.data[index]);
+        if (index+1 != directories.data.length) directories.data.splice(index+1, directories.data.length-index);
+    };
+
+    // // Handle forward and back button in browser
+    // useEffect(() => {
+    //     // Check if the back button was pressed
+    //     const handleBackButton = (event) => {
+    //       if (event && event.type === 'popstate') {
+    //         const prev = directories.data.pop();
+    //         console.log(prev);
+    //         setPrevData(getData(prev));
+
+    //         setCurrentData(getData(directories.data[directories.data.length-1]));
+    //         console.log(prevData);
+    //         console.log(currentData);
+    //         console.log(directories);
+    //       }
+    //     };
+    
+    //     // Check if the forward button was pressed
+    //     const handleForwardButton = (event) => {
+    //       if (event && event.type === 'pushstate') {
+    //         setCurrentData(getData(prevData));
+    //         directories.data.push(getData(prevData));
+    //         console.log(prevData);
+    //         console.log(currentData);
+    //         console.log(directories);
+    //       }
+    //     };
+    
+    //     // Add event listeners for the 'popstate' and 'pushstate' events
+    //     window.addEventListener('popstate', handleBackButton);
+    //     window.addEventListener('pushstate', handleForwardButton);
+    
+    //     // Clean up function to remove the event listeners when the component unmounts
+    //     return () => {
+    //       window.removeEventListener('popstate', handleBackButton);
+    //       window.removeEventListener('pushstate', handleForwardButton);
+    //     };
+    //   }, []);
+
+
+
     return (
         <>
             <div><Navbar /></div>
             <div className={styles.partition}>
                 {/* Current directory */}
-                <h4 className={styles.heading}> 
-                    Root 
-                    <FaAngleRight fontSize={30} />
-                    CMSC 
-                </h4>
-
-                {/* Folders */}
-                <p className={styles.subHeading}>
-                    Folders
-                </p>
-                <div className={styles.container}>
-                    <Link to={`/user/${userID}/resources/CMSC21`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                    <Folders title={"CMSC 21"}/>
+                <div className={styles.directory}> 
+                    <Link to={`/user/${userID}/dashboard`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                        <h4 id="dashboard">Root</h4>
                     </Link>
-                    <Folders title={"CMSC 22"}/>
-                    <Folders title={"CMSC 123"}/>
-                    <Folders title={"CMSC 130"}/>
-                    <Folders title={"CMSC 150"}/>
-                </div>
 
-                {/* Files */}
-                <p className={styles.subHeading}>
-                    Files
-                </p>
-                <div className={styles.container}>
-                    <Files title={"BSCS Curriculum"} type={"pdf"}/>
-                    <Files title={"BSCS Curriculum"} type={"docs"}/>
-                </div>
-            </div>
-        </>
-    );
-};
+                    {directories.data?.map((directory, index) => {
+                        return(
+                            <>
+                                <FaAngleRight fontSize={30} />
 
-// folder view for MATH courses
-export const MathFolderView = () => {
-    return (
-        <>
-            <div><Navbar /></div>
-            <div className={styles.partition}>
-                {/* Current directory */}
-                <h4 className={styles.heading}> 
-                    Root 
-                    <FaAngleRight fontSize={30} />
-                    MATH 
-                </h4>
+                                <Link to={`/user/${userID}/folderView/` + directory.name} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                    <h4 onClick={() => updateDirectory(index)}>{directory.name} </h4>
+                                </Link>
+                            </>
+                        )
+                    })}
+                </div>
 
                 {/* Folders */}
                 <p className={styles.subHeading}>
                     Folders
                 </p>
                 <div className={styles.container}>
-                    <Folders title={"MATH 27"}/>
-                    <Folders title={"MATH 28"}/>
-                    <Folders title={"MATH 10"}/>
+                    {currentData.folders.map((folder, index) => {
+                        return (
+                            <>
+                                <Link to={`/user/${userID}/folderView/` + folder.name} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                    <Folders onClick={() => goToFolder(index)} title={folder.name}/>
+                                </Link>
+                            </>
+                        )
+                    })}
                 </div>
 
                 {/* Files */}
@@ -76,83 +145,19 @@ export const MathFolderView = () => {
                     Files
                 </p>
                 <div className={styles.container}>
-                    <Files title={"BSCS Curriculum"} type={"pdf"}/>
-                    <Files title={"BSCS Curriculum"} type={"docs"}/>
+                    {currentData.files.map((file, index) => {
+                        return (
+                            <>
+                                <Link to={`/user/${userID}/folderView/` + file.name} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                    <Files title={file.name}/>
+                                </Link>
+                            </>
+                        )
+                    })}
                 </div>
             </div>
         </>
     );
 };
 
-// folder view for STAT courses
-export const StatFolderView = () => {
-    return (
-        <>
-            <div><Navbar /></div>
-            <div className={styles.partition}>
-                {/* Current directory */}
-                <h4 className={styles.heading}> 
-                    Root 
-                    <FaAngleRight fontSize={30} />
-                    STAT
-                </h4>
-
-                {/* Folders */}
-                <p className={styles.subHeading}>
-                    Folders
-                </p>
-                <div className={styles.container}>
-                    <Folders title={"STAT 101"}/>
-                </div>
-
-                {/* Files */}
-                <p className={styles.subHeading}>
-                    Files
-                </p>
-                <div className={styles.container}>
-                    <Files title={"BSCS Curriculum"} type={"pdf"}/>
-                    <Files title={"BSCS Curriculum"} type={"docs"}/>
-                </div>
-            </div>
-        </>
-    );
-};
-
-// folder view for OTHER courses
-export const OthersFolderView = () => {
-    return (
-        <>
-            <div><Navbar /></div>
-            <div className={styles.partition}>
-                {/* Current directory */}
-                <h4 className={styles.heading}> 
-                    Root 
-                    <FaAngleRight fontSize={30} />
-                    OTHERS 
-                </h4>
-
-                {/* Folders */}
-                <p className={styles.subHeading}>
-                    Folders
-                </p>
-                <div className={styles.container}>
-                    <Folders title={"ETHICS 1"}/>
-                    <Folders title={"KAS 1"}/>
-                    <Folders title={"HIST 1"}/>
-                    <Folders title={"COMM 10"}/>
-                    <Folders title={"PI 10"}/>
-                    <Folders title={"ARTS 1"}/>
-                </div>
-
-                {/* Files */}
-                <p className={styles.subHeading}>
-                    Files
-                </p>
-                <div className={styles.container}>
-                    <Files title={"BSCS Curriculum"} type={"pdf"}/>
-                    <Files title={"BSCS Curriculum"} type={"docs"}/>
-                </div>
-            </div>
-        </>
-    );
-};
+export default UserFolderView;

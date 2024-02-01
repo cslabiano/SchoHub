@@ -1,0 +1,456 @@
+{
+    "root": [
+        {
+            "name": "CMSC",
+            "lastUpdate": "Dec 2023",
+            "contributor": "Kuya Monde",
+            "folders": [
+                {
+                    "name": "CMSC 21",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [
+                                {
+                                    "name": "01_introduction_to_C_01",
+                                    "type": "pdf"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [
+                                {
+                                    "name": "02_introduction_to_C_02",
+                                    "type": "pdf"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [
+                                {
+                                    "name": "Functions",
+                                    "type": "pdf"
+                                }
+                            ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "CMSC 21 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "CMSC 22",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [ ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "CMSC 22 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "CMSC 123",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [ ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "CMSC 123 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "CMSC 130",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [ ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "CMSC 130 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "CMSC 150",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [ ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "CMSC 150 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                }
+            ],
+            "files": [
+                {
+                    "name": "BSCS Curriculum 2018",
+                    "type": "pdf"
+                }
+            ]
+        },
+        {
+            "name": "MATH",
+            "lastUpdate": "Jan 2023",
+            "contributor": "Ate Soph",
+            "folders": [
+                {
+                    "name": "MATH 10",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "MATH 10 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "MATH 27",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [ ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "MATH 27 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "MATH 28",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": [ ]
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "MATH 28 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                }
+            ],
+            "files": [
+                {
+                    "name": "BSAM 2018",
+                    "type": "pdf"
+                }
+            ]
+        },
+        {
+            "name": "STAT",
+            "lastUpdate": "Jan 2023",
+            "contributor": "Kuya Uzzie",
+            "folders": [
+                {
+                    "name": "STAT 101",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "STAT 101 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                }
+            ],
+            "files": [
+                {
+                    "name": "BSSTAT 2018",
+                    "type": "pdf"
+                }
+            ]
+        },
+        {
+            "name": "OTHERS",
+            "lastUpdate": "Jan 2023",
+            "contributor": "Markus",
+            "folders": [
+                {
+                    "name": "ARTS 1",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "ARTS 1 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "ETHICS 1",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "ETHICS 1 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "HIST 1",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "HIST 1 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "KAS 1",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "KAS 1 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "PI 10",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "PI 10 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                },
+                {
+                    "name": "STS 1",
+                    "folders": [
+                        {
+                            "name": "W1",
+                            "folders": [ ],
+                            "files": [ ]
+                        },
+                        {
+                            "name": "W2",
+                            "folders": [ ],
+                            "files": []
+                        },
+                        {
+                            "name": "W3",
+                            "folders": [ ],
+                            "files": []
+                        }
+                    ],
+                    "files": [
+                        {
+                            "name": "STS 1 Course Guide",
+                            "type": "pdf"
+                        }
+                    ]
+                }
+            ],
+            "files": []
+        }
+    ]
+}

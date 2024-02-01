@@ -36,7 +36,7 @@ const UserDashboard = () => {
                 <div className={styles.container}>
                 {/* CMSC Course */}
                     <div className={styles.course}>
-                    <Link to={`/user/${userID}/cmscfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/user/${userID}/folderView/CMSC`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
                         <div className={styles.courseDetails}>
                         
@@ -61,7 +61,7 @@ const UserDashboard = () => {
                     
                     {/* MATH Course */}
                     <div className={styles.course}>
-                    <Link to={`/user/${userID}/mathfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/user/${userID}/folderView/MATH`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
                         <div className={styles.courseDetails}>
@@ -85,7 +85,7 @@ const UserDashboard = () => {
                 
                     {/* STAT Course */}
                     <div className={styles.course}>
-                    <Link to={`/user/${userID}/statfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/user/${userID}/folderView/STAT`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
                         <div className={styles.courseDetails}>
@@ -109,7 +109,7 @@ const UserDashboard = () => {
                 
                     {/* OTHERS Course */}
                     <div className={styles.course}>
-                    <Link to={`/user/${userID}/othersfolderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/user/${userID}/folderView/OTHERS`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 
                         <div className={styles.courseDetails}>
