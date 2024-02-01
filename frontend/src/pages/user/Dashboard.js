@@ -32,8 +32,9 @@ const UserDashboard = () => {
                 
                 <div className={styles.container}>
                 {/* CMSC Course */}
-                <Link to="/user/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/user/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
                         <div className={styles.courseDetails}>
                         
@@ -46,16 +47,20 @@ const UserDashboard = () => {
                                 </p>
                             </div>
                             
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
-                                <FaEllipsisV />
-                            </button>
+                            
+                            
                         </div>
+                        </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
+                            <FaEllipsisV />
+                        </button>
                     </div>
-                    </Link>
+                    
                     {/* MATH Course */}
-                <Link to="/user/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/user/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
                         <div className={styles.courseDetails}>
@@ -68,16 +73,19 @@ const UserDashboard = () => {
                                 </p>
                             </div>
 
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
-                                <FaEllipsisV />
-                            </button>
+                            
                         </div>
+                    </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
+                            <FaEllipsisV />
+                        </button>
                     </div>
-                </Link>
+                
                     {/* STAT Course */}
-                <Link to="/user/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/user/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
                         <div className={styles.courseDetails}>
@@ -90,16 +98,19 @@ const UserDashboard = () => {
                                 </p>
                             </div>
 
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
-                                <FaEllipsisV />
-                            </button>
+                            
                         </div>
+                    </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
+                            <FaEllipsisV />
+                        </button>
                     </div>
-                </Link>
+                
                     {/* OTHERS Course */}
-                <Link to="/user/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/user/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 
                         <div className={styles.courseDetails}>
@@ -112,13 +123,15 @@ const UserDashboard = () => {
                                 </p>
                             </div>
 
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
-                                <FaEllipsisV />
-                            </button>
+                            
                         </div>
+                        </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
+                            <FaEllipsisV />
+                        </button>
                     </div>
-                </Link>
+                
                 </div>
             </div>
 

@@ -32,8 +32,9 @@ const AdminDashboard = () => {
                 
                 <div className={styles.container}>
                 {/* CMSC Course */}
-                <Link to="/admin/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/admin/cmscfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.cmsc}> </div>
                         <div className={styles.courseDetails}>
                         
@@ -44,18 +45,19 @@ const AdminDashboard = () => {
                                 <p className={styles.courseDate}>
                                     last Updated: Sept 2022
                                 </p>
-                            </div>
-                            
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
+                            </div>    
+                        </div>
+                        </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
-                        </div>
                     </div>
-                    </Link>
+                    
                     {/* MATH Course */}
-                <Link to="/admin/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/admin/mathfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.math}> </div>
 
                         <div className={styles.courseDetails}>
@@ -66,18 +68,19 @@ const AdminDashboard = () => {
                                 <p className={styles.courseDate}>
                                     last Updated: Sept 2022
                                 </p>
-                            </div>
-
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
-                                <FaEllipsisV />
-                            </button>
+                            </div>    
                         </div>
+                        </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
+                            <FaEllipsisV />
+                        </button>
                     </div>
-                    </Link>
+                    
                     {/* STAT Course */}
-                <Link to="/admin/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/admin/statfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.stat}> </div>
 
                         <div className={styles.courseDetails}>
@@ -88,18 +91,19 @@ const AdminDashboard = () => {
                                 <p className={styles.courseDate}>
                                     last Updated: Sept 2022
                                 </p>
-                            </div>
-
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
-                                <FaEllipsisV />
-                            </button>
+                            </div>       
                         </div>
+                        </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
+                            <FaEllipsisV />
+                        </button>
                     </div>
-                </Link>
+                
                     {/* OTHERS Course */}
-                <Link to="/admin/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                
                     <div className={styles.course}>
+                    <Link to="/admin/othersfolderView" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                         <div className={styles.courseImg} id={styles.others}> </div>
 
                         <div className={styles.courseDetails}>
@@ -110,15 +114,15 @@ const AdminDashboard = () => {
                                 <p className={styles.courseDate}>
                                     last Updated: Sept 2022
                                 </p>
-                            </div>
-
-                            {/* More Button */}
-                            <button className={styles.courseMore}>
+                            </div>    
+                        </div>
+                        </Link>
+                        {/* More Button */}
+                        <button className={styles.courseMore}>
                                 <FaEllipsisV />
                             </button>
-                        </div>
                     </div>
-                    </Link>
+                    
                 </div>
             </div>
 
