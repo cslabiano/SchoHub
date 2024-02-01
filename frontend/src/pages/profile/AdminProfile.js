@@ -3,12 +3,13 @@ import Navbar from "../../components/AdminNavbar.js";
 import styles from "./Profile.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 const AdminProfile = () => {
   let IDparam = useParams(); // get userID parameters from URL
   const userID = IDparam.userID; // obtain value of userID from json format
 
-  const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
     // name: "Lorem Ipsum Dolor",
@@ -16,6 +17,11 @@ const AdminProfile = () => {
     // department: "Department",
     // bio: "Lorem Ipsum Dolor SIt Amet",
   });
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // to display user information in profile page
   const handleSetUserData = async() => {
@@ -42,10 +48,6 @@ const AdminProfile = () => {
     bio: profileData.bio,
   });
 
-  // clicking edit profile
-  const handleEditProfile = () => {
-    setIsEditPopupVisible(true);
-  };
 
   // form submission
   const handleSaveChanges = async(updatedProfileData, userID) => {
@@ -75,7 +77,6 @@ const AdminProfile = () => {
     const result = await response1.json();
 
     console.log("Updated profile: ", result);
-    setIsEditPopupVisible(false);
   };
 
   return (
@@ -99,94 +100,102 @@ const AdminProfile = () => {
           <button
             className={styles.editButton}
             id={styles.btn}
-            onClick={handleEditProfile}
+            onClick={handleShow}
           >
             Edit Profile
           </button>
         </div>
+
+        <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title className={styles.h4}>Edit Profile</Modal.Title>
+            </Modal.Header>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSaveChanges(updatedProfileData, userID);
+              }}
+            >
+              <Modal.Body>
+
+                <div className={styles.formfields}>
+                  <label>Name:
+                    <input
+                      type="text"
+                      class="form-control"
+                      value={updatedProfileData.name}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          name: e.target.value,
+                        })
+                      }
+                    ></input>
+                  </label>
+
+                  <br />
+
+                  <label>
+                    Org Batch:
+                    <input
+                      type="text"
+                      class="form-control"
+                      value={updatedProfileData.orgBatch}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          orgBatch: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <label>
+                    Department:
+                    <input
+                      type="text"
+                      class="form-control"
+                      value={updatedProfileData.department}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          department: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <label>
+                    Bio:
+                    <textarea
+                      class="form-control"
+                      value={updatedProfileData.bio}
+                      onChange={(e) =>
+                        setUpdatedProfileData({
+                          ...updatedProfileData,
+                          bio: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" type="submit" style={{ background: "#274c77" }} 
+                  onClick={() => {
+                    handleSaveChanges(updatedProfileData, userID);
+                    handleClose();
+                  }}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+            </form>
+
+          </Modal>
       </div>
-
-      {/* edit profile popup */}
-      {isEditPopupVisible && (
-        <div className={styles.editPopup}>
-          <div className={styles.title}>
-            <h2 class={styles.h4}>Edit Profile</h2>
-          </div>
-          {/* edit profile form */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-
-              handleSaveChanges(updatedProfileData, userID);
-            }}
-          >
-            <div className={styles.formfields}>
-              <label>
-                Name:
-                <input
-                  type="text"
-                  value={updatedProfileData.name}
-                  onChange={(e) =>
-                    setUpdatedProfileData({
-                      ...updatedProfileData,
-                      name: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <br />
-              <label>
-                Org Batch:
-                <input
-                  type="text"
-                  value={updatedProfileData.orgBatch}
-                  onChange={(e) =>
-                    setUpdatedProfileData({
-                      ...updatedProfileData,
-                      orgBatch: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <br />
-              <label>
-                Department:
-                <input
-                  type="text"
-                  value={updatedProfileData.department}
-                  onChange={(e) =>
-                    setUpdatedProfileData({
-                      ...updatedProfileData,
-                      department: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <br />
-              <label>
-                Bio:
-                <textarea
-                  value={updatedProfileData.bio}
-                  onChange={(e) =>
-                    setUpdatedProfileData({
-                      ...updatedProfileData,
-                      bio: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <br />
-              <button
-                className={styles.editButton}
-                id={styles.btn}
-                type="submit"
-              >
-                Save Changes
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
     </>
   );
 };
