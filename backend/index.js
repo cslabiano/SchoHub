@@ -26,6 +26,7 @@ mongoose.connect(uri)
 const usersController = require('./controllers/users-controller');
 const resourcesController = require('./controllers/resources-controller');
 const requestsController = require('./controllers/requests-controller');
+const residentUploadsController = require('./controllers/residentUploads-controller');
 const { updateMany } = require("./models/resources");
 
 app.use(cors());
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 app.use('/api/users', usersController);
 app.use('/api/resources', resourcesController);
 app.use('/api/requests', requestsController);
+app.use('/api/residentUploads', residentUploadsController);
 app.use("/files", express.static("files"));
 
 
