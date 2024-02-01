@@ -29,12 +29,17 @@ const ViewRequest = () => {
     console.log(`Resolved ${ticket.lname}'s request.`);
     //console.log("ID: ", ticket._id);
 
+    // transfer request to user history
+    const response0 = await fetch(`http://localhost:3001/manage-requests/${ticket.userID}/${ticket.course}/${ticket.file}/Resolved`);
+    const result0 = await response0.json();
+    console.log(result0);
+
     // delete specific request document in database
-    const response = await fetch(`http://localhost:3001/api/requests/${ticket._id}`, {
+    const response1 = await fetch(`http://localhost:3001/api/requests/${ticket._id}`, {
       method: 'DELETE',
     });
-    const result = await response.json;
-    console.log(result);
+    const result1 = await response1.json();
+    console.log(result1);
 
     getRequestsData(); // update data and displayed requests
 
@@ -49,12 +54,17 @@ const ViewRequest = () => {
     console.log(`Rejected ${ticket.lname}'s request.`);
     //console.log("ID: ", ticket._id);
 
+    // transfer request to user history
+    const response0 = await fetch(`http://localhost:3001/manage-requests/${ticket.userID}/${ticket.course}/${ticket.file}/Rejected`);
+    const result0 = await response0.json();
+    console.log(result0);
+
     // delete specific request document in database
-    const response = await fetch(`http://localhost:3001/api/requests/${ticket._id}`, {
+    const response1 = await fetch(`http://localhost:3001/api/requests/${ticket._id}`, {
       method: 'DELETE',
     });
-    const result = await response.json;
-    console.log(result);
+    const result1 = await response1.json;
+    console.log(result1);
 
     getRequestsData(); // update data and displayed requests
 

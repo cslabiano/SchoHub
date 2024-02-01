@@ -7,5 +7,12 @@ module.exports = mongoose.model('users', {
     class: { type: String, required: true},
     batch: { type: String, required: true },
     department: { type: String, required: true },
-    bio: { type: String, required: true }
+    bio: { type: String, required: true },
+    history: { type: [
+    {
+        course: { type: String, required: true },
+        file: { type: String, required: true },
+        status: { type: String, required: true }
+    }
+    ], required: true}
 });

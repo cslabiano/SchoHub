@@ -1,10 +1,11 @@
 import Navbar from "../../components/UserNavbar.js";
 import React, { useState } from "react";
 import styles from "./RequestForm.module.css";
+import { useParams } from "react-router-dom";
 
 const RequestForm = () => {
-  // let IDparam = useParams(); // get userID parameters from URL
-  // const userID = IDparam.userID; // obtain value of userID from json format
+  let IDparam = useParams(); // get userID parameters from URL
+  const userID = IDparam.userID; // obtain value of userID from json format
 
   // use states
   const [Lastname, setLastname] = useState("");
@@ -17,7 +18,7 @@ const RequestForm = () => {
     try {
 
       // pass Lastname, Firstname, RequestFilename, and Purpose to index.js
-      const response = await fetch(`http://localhost:3001/record-request/${Lastname}/${Firstname}/${RequestFilename}/${Purpose}`);
+      const response = await fetch(`http://localhost:3001/record-request/${userID}/${Lastname}/${Firstname}/${RequestFilename}/${Purpose}`);
       const result = await response.json();
 
       if (result){

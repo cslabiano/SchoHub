@@ -69,6 +69,7 @@ app.get('/login/:Email/:Password', async(req, res) => {
       //console.log("Existing user password: ", data[i].password);
       console.log("Existing user id: ", data[i]._id);
       console.log("Existing user class: ", data[i].class);
+      console.log("Existing user history: ", data[i].history);
       console.log("email credentials match!");
       loginSuccess = data[i]; // return user if user exists in database
       break;
@@ -79,11 +80,12 @@ app.get('/login/:Email/:Password', async(req, res) => {
 
 
 // == for User Request Form =======
-app.get('/record-request/:Lastname/:Firstname/:RequestFilename/:Purpose', async(req, res) => {
+app.get('/record-request/:userID/:Lastname/:Firstname/:RequestFilename/:Purpose', async(req, res) => {
   const Lastname = req.params.Lastname; // get file request information
   const Firstname = req.params.Firstname;
   const RequestFilename = req.params.RequestFilename;
   const Purpose = req.params.Purpose;
+  const UserID = req.params.userID;
 
   // split filename
   // format: <Subject>_<SubjectCode>_<Module#/Exam#>_<TypeOfMaterial>
@@ -111,6 +113,7 @@ app.get('/record-request/:Lastname/:Firstname/:RequestFilename/:Purpose', async(
     body: JSON.stringify({
       fname: Firstname,
       lname: Lastname,
+      userID: UserID,
       date: currentDate,
       course: courseCode,
       file: fileDescription,
@@ -124,4 +127,87 @@ app.get('/record-request/:Lastname/:Firstname/:RequestFilename/:Purpose', async(
   if (result){
     res.send(result);
   }
+});
+
+
+// == for RESOLVED/REJECTED User File Requests =====
+app.get('/manage-requests/:userID/:courseCode/:filename/:status', async(req, res) => {
+  const UserID = req.params.userID;
+  const CourseCode = req.params.courseCode;
+  const Filename = req.params.filename;
+  const Status = req.params.status; // Resolved/Rejected
+
+  // get user history array
+  const response0 = await fetch(`http://localhost:3001/api/users/${UserID}`);
+  const user = await response0.json();
+  const History = user.history;
+
+  const notif = { // create an object with the notification format
+    course: CourseCode,
+    file: Filename,
+    status: Status,
+  }
+
+  History.push(notif); // add the resolved/rejected request to the user's history
+  console.log(History);
+
+  // update user data (history array)
+  const response1 = await fetch(`http://localhost:3001/api/users/${UserID}`, {
+      method: 'PUT',
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ // update new data (History) and retain non-updated data
+        name: user.name,
+        email: user.email,
+        class: user.class,
+        batch: user.orgBatch,
+        department: user.department,
+        bio: user.bio,
+        history: History
+      }),
+    })
+  const result = await response1.json();
+
+  res.send(result);
+});
+
+// == for DELETING NOTIF IN USER HISTORY ======
+app.get('/delete-history/:type/:userID/:index?', async(req, res) => {
+  const UserID = req.params.userID;
+  const Index = req.params.index;
+  const Type = req.params.type;
+
+  // get user history array
+  const response0 = await fetch(`http://localhost:3001/api/users/${UserID}`);
+  const user = await response0.json();
+  const History = user.history;
+
+  if (Type === "single"){
+    History.splice(Index, 1); // remove 1 array element only with given index
+  } else if (Type === "clear"){
+    History.splice(0, History.length); // remove all element starting from index 0
+  }
+
+  console.log(History);
+
+  // update user data (history array)
+  const response1 = await fetch(`http://localhost:3001/api/users/${UserID}`, {
+      method: 'PUT',
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ // update new data (History) and retain non-updated data
+        name: user.name,
+        email: user.email,
+        class: user.class,
+        batch: user.orgBatch,
+        department: user.department,
+        bio: user.bio,
+        history: History
+      }),
+    })
+  const result = await response1.json();
+
+  res.send(result);
 });

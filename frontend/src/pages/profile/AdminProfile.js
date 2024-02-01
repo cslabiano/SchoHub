@@ -70,7 +70,8 @@ const AdminProfile = () => {
         class: originalData.class,
         batch: updatedProfileData.orgBatch,
         department: updatedProfileData.department,
-        bio: updatedProfileData.bio
+        bio: updatedProfileData.bio,
+        history: originalData.history
       }),
     })
 

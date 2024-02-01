@@ -13,45 +13,23 @@ const UserProfile = () => {
   let IDparam = useParams(); // get userID parameters from URL
   const userID = IDparam.userID; // obtain value of userID from json format
 
-  const notifs = [
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      status: "Accepted",
-    },
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      status: "Rejected",
-    },
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      status: "Accepted",
-    },
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      status: "Rejected",
-    },
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      status: "Accepted",
-    },
-    {
-      course: "Course 101",
-      file: "Course Guide",
-      status: "Rejected",
-    },
-  ];
+  const [history, setHistory] = useState([]);
+
+  // get the resolved/rejected file requests made by user
+  const getHistoryData = async() => {
+    // retrieve user history data from database
+    const response = await fetch(`http://localhost:3001/api/users/${userID}`); 
+    const data = await response.json(); 
+    const historyData = data.history;
+    //console.log(data);
+    setHistory(historyData); // set requests by user data
+  }
+
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  //const [isEditPopupVisible, setIsEditPopupVisible] = useState(false);
 
   const [profileData, setProfileData] = useState({
     // name: "Lorem Ipsum Dolor",
@@ -75,6 +53,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     handleSetUserData(); // load the user data corresponding to the user ID
+    getHistoryData(); // load user's hisory
   }, []);
 
   const [updatedProfileData, setUpdatedProfileData] = useState({
@@ -83,49 +62,11 @@ const UserProfile = () => {
     department: profileData.department,
     bio: profileData.bio,
   });
-
-  // ==============================
-  // update user profile
-  // UserProfile.get('/',(req, res) => {
-  //   let username = req.query.username || '';
-  //   username = username.replace('');
-  //   if (!username || !password || users[username]) {
-  //     return res.sendStatus(400);
-  //   }
-  // });
-  
-  // UserProfile.post('/', (req, res, next) => {
-  //   const users = req.app.locals.users;
-  //   const { name, orgBatch, department, bio } = req.body;
-  //   // const _id = ObjectID(req.session.passport.user);
-
-  //   users.updateOne( {$set: {name, orgBatch, department, bio}});
-    
-
-  //   res.redirect('/users')
-  // });
-
-  // const handleSaveChanges = async () => {
-  //   try {
-  //     await axios.put('http://localhost:3001/api/profile/1', updatedProfileData); // Assuming user ID is 1
-  //     setProfileData(updatedProfileData);
-  //     setIsEditPopupVisible(false);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-
- // ==============================
-
-  // // clicking edit profile
-  // const handleEditProfile = () => {
-  //   setIsEditPopupVisible(true);
-  // };
-
   
   // form submission
   const handleSaveChanges = async(updatedProfileData, userID) => {
     setProfileData(updatedProfileData);
-    console.log("update profile with id: ", userID);
+    //console.log("update profile with id: ", userID);
 
     // get original data from database
     const response0 = await fetch(`http://localhost:3001/api/users/${userID}`); // obtain specific user from database
@@ -143,14 +84,32 @@ const UserProfile = () => {
         class: originalData.class,
         batch: updatedProfileData.orgBatch,
         department: updatedProfileData.department,
-        bio: updatedProfileData.bio
+        bio: updatedProfileData.bio,
+        history: originalData.history
       }),
     })
 
     const result = await response1.json();
 
-    console.log("Updated profile: ", result);
-    // setIsEditPopupVisible(false);
+    //console.log("Updated profile: ", result);
+  };
+
+  // deleting a single notif in user history
+  const handleDelete = async(index, userID) => {
+    const type = "single"
+    
+    const response = await fetch(`http://localhost:3001/delete-history/${type}/${userID}/${index}`);
+    const result = await response.json();
+    getHistoryData();
+  };
+
+  // clearing user history
+  const handleClear = async(userID) => {
+    const type = "clear"
+    
+    const response = await fetch(`http://localhost:3001/delete-history/${type}/${userID}/`);
+    const result = await response.json();
+    getHistoryData();
   };
 
   return (
@@ -287,7 +246,7 @@ const UserProfile = () => {
           {/* div for containing the requests dynamically */}
           <div className="container" style={{ marginTop: "3%" }}>
             <div className="row g-4">
-              {notifs.length === 0 ? (
+              {history.length === 0 ? (
                 <>
                   <div className="text-center" style={{ marginTop: "35%" }}>
                     <TbBellX fontSize={200} color="#8B8C89" />
@@ -305,7 +264,7 @@ const UserProfile = () => {
                     <button
                       type="button"
                       class="btn btn-light"
-                      // onClick={() => handleClear()}
+                      onClick={() => handleClear(userID)}
                       style={{
                         borderColor: "#274C77",
                         color: "#274C77",
@@ -317,8 +276,8 @@ const UserProfile = () => {
                       CLEAR ALL
                     </button>
                   </div>
-                  {/* similar to the function "for each", calls for the list named "notif" */}
-                  {notifs.map((notif, index) => {
+                  {/* similar to the function "for each", calls for the list named "history" */}
+                  {history.map((hist, index) => {
                     return (
                       <>
                         <div
@@ -338,21 +297,21 @@ const UserProfile = () => {
                             }}
                           >
                             <span>
-                              <strong>Course:</strong> {notif.course}
+                              <strong>Course:</strong> {hist.course}
                             </span>
                             <br />
                             <span>
-                              <strong>File Requested:</strong> {notif.file}
+                              <strong>File Requested:</strong> {hist.file}
                             </span>
                             <br />
                             <span>
-                              <strong>Status:</strong> {notif.status}
+                              <strong>Status:</strong> {hist.status}
                             </span>
                           </div>
                           <div style={{ marginRight: "8%" }}>
                             <button
                               className="btn btn-light"
-                              // onClick={() => handleDelete(index)}
+                              onClick={() => handleDelete(index, userID)}
                               style={{
                                 // paddingTop: 3,
                                 height: "40px",
@@ -363,7 +322,7 @@ const UserProfile = () => {
                             </button>
                           </div>
                         </div>
-                        {index === notifs.length - 1 ? (
+                        {index === history.length - 1 ? (
                           <></>
                         ) : (
                           <hr style={{ marginBottom: "22px", marginTop: 0 }} />
