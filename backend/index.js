@@ -164,8 +164,9 @@ app.get('/record-user-add-file/:Firstname/:Lastname/:Subject/:Filename/:Descript
   const Description = req.params.Description;
 
   const updatedFileName = 'newFileName';
-  setFileName(updatedFileName);
+  setFileName(updatedFileName); // prompts error: FUNCTION UNDEFINED
   
+  // might also promt error as the format is not the same with residentUploads model
   // create a new document in requests collection
   const response = await fetch("http://localhost:3001/api/residentUploads", {
     method: "POST",

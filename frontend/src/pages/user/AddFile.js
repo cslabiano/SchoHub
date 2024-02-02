@@ -135,7 +135,7 @@ const AddFileModal = ({closeModal}) => {
                         <button 
                             className={styles.button} 
                             onClick={() => {
-                                recordRequest();
+                                //recordRequest();
                             }}
                         >
                             Submit
