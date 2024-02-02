@@ -4,11 +4,15 @@ import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import styles from "./Navbar.module.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminNavbar = () => {
   let IDparam = useParams(); // get userID parameters from URL
   const userID = IDparam.userID; // obtain value of userID from json format
 
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
   return (
     <>
       <nav className={styles.navbar}>
@@ -85,11 +89,19 @@ const AdminNavbar = () => {
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
+                      onChange={(e) => setInput(e.target.value)}
                     />
                     <button
                       className="btn btn-outline-success"
                       id={styles.btn}
                       type="submit"
+                      onClick={() => {
+                        if (input === "") {
+                          alert("File not found!");
+                        } else {
+                          navigate("/admin/" + userID + "/files/" + input);
+                        }
+                      }}
                     >
                       <IoSearch />
                     </button>

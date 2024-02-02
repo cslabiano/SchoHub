@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const AddFileModal = ({closeModal}) => {
     const [showModal, setShowModal] = useState(false);
-    const [course,setCourse] = useState("");
+    let [course,setCourse] = useState("");
     const [title,setTitle] = useState("");
     const [file,setFile] = useState();
     const [type,setType] = useState("");
@@ -24,6 +24,7 @@ const AddFileModal = ({closeModal}) => {
         setShowModal(false);
         e.preventDefault();
         const fileData = new FormData();
+        course = course.replace(" ", "");
         fileData.append("course",course);
         fileData.append("title",title);
         fileData.append("file",file);

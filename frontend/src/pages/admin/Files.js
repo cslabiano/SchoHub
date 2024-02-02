@@ -1,4 +1,4 @@
-import Navbar from "../../components/UserNavbar.js";
+import Navbar from "../../components/AdminNavbar.js";
 import Files from "../../components/Files.js";
 import { Navigate, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
@@ -6,12 +6,7 @@ import styles from "./FolderView.module.css";
 import axios from 'axios';
 import {useState} from "react";
 
-
-
-const UserFiles = () => {
-    //const [value, setValue] = useState();
-    // let IDparam = useParams(); // get userID parameters from URL
-    // const userID = IDparam.userID; // obtain value of userID from json format
+const AdminFiles = () => {
     let {IDparam, search} = useParams();
     console.log(IDparam);
     const [allFiles, setAllFiles] = useState([]);
@@ -73,4 +68,4 @@ const UserFiles = () => {
     );
 };
 
-export default UserFiles;
+export default AdminFiles;

@@ -16,7 +16,7 @@ const AddFileModal = ({closeModal}) => {
     const handleClose = () => setShowModal(false);
 
     const recordRequest = async(e) => {
-        e.preventDefault();
+        setShowModal(false)
         try {
         
         // pass to index.js

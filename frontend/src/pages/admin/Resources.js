@@ -1,15 +1,15 @@
-import Navbar from "../../components/UserNavbar.js";
+import Navbar from "../../components/AdminNavbar.js";
+import Folders from "../../components/Folders.js";
 import Files from "../../components/Files.js";
-import { Link } from "react-router-dom";
-import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import styles from "./FolderView.module.css";
 import axios from 'axios';
 import {useState} from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-
-const UserResources = () => {
+const AdminResources = () => {
     const [allFiles, setAllFiles] = useState([]);
     
     let {userID, course, id} = useParams(); // get userID parameters from URL
@@ -31,7 +31,7 @@ const UserResources = () => {
             <div className={styles.partition}>
                 <p className={styles.heading}> 
                     Root 
-                    <Link to={`/user/${userID}/${course}folderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <Link to={`/admin/${userID}/${course}folderView`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <FaAngleRight fontSize={30} />
                     {course}
                     </Link>
@@ -72,4 +72,4 @@ const UserResources = () => {
     );
 };
 
-export default UserResources;
+export default AdminResources;

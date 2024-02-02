@@ -187,41 +187,7 @@ app.get('/record-user-add-file/:Firstname/:Lastname/:Subject/:Filename/:Descript
   if (result){
     res.send(result);
   }
-});
-
-// == for User Add File =======
-app.get('/record-user-add-file/:Firstname/:Lastname/:Subject/:Filename/:Description', async(req, res) => {
-  const Firstname = req.params.Firstname; // get file request information
-  const Lastname = req.params.Lastname;
-  const Subject = req.params.Subject;
-  const Filename = req.params.Filename;
-  const Description = req.params.Description;
-
-  const updatedFileName = 'newFileName';
-  setFileName(updatedFileName);
-  
-  // create a new document in requests collection
-  const response = await fetch("http://localhost:3001/api/residentUploads", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      fname: Firstname,
-      lname: Lastname,
-      subject: Subject,
-      filename: Filename,
-      filedescription: Description,
-    }),
-  });
-
-  const result = await response.json();
-  console.log("Created new request: ", result);
-
-  if (result){
-    res.send(result);
-  }
-});
+}); 
 
 
 // == for RESOLVED/REJECTED User File Requests =====
