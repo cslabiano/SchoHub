@@ -37,30 +37,27 @@ git config user.name <name>
 git config user.email <name@email.com>
 ```
 
-## 2. Installation
+## 2. Running the Project
 
-### Backend Dependencies
+1. Within the SchoHub directory:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-### Frontend Dependencies
+2. Start the backend server:
 
-```bash
-npm install
-```
-
-## Running the Project
-
-1. Start the backend server:
    ```bash
    cd backend
+   npm install
    node index.js
    ```
-2. Run the React application:
+
+3. Run the React application:
+
    ```bash
    cd frontend
+   npm install
    npm start
    ```
 
